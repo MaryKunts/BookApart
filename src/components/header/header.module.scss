@@ -1,5 +1,6 @@
 @use "../../styles/font.scss";
 @use "../../styles/colors.scss";
+@use "../../styles/spacing.scss";
 
 .wrapper {
   position: sticky;
@@ -22,9 +23,9 @@
       border: none;
 
       .icon-button-title {
-        color:colors.$icon-color;
+        color: colors.$astro-purple;
         font-size: font.$font-size-lg;
-        font-weight: font.$bold;
+        font-weight: font.$font-weight-bold;
         font-family: font.$header-style;
       }
     }
@@ -38,15 +39,15 @@
     .rent-out-button-wrapper {
       .rent-out-button {
         border: none;
-        border-radius: font.$border-radius;
+        border-radius: spacing.$border-radius-md;
         font-size: font.$font-size-s;
-        font-weight: font.$bold;
+        font-weight: font.$font-weight-bold;
         font-family: font.$header-style;
-        color: colors.$header-font-color;
+        color: colors.$shisha-coal;
         padding: 12px;
 
         &:hover {
-          background-color: colors.$button-background-color;
+          background-color: colors.$white-smoke;
         }
       }
     }
@@ -54,26 +55,26 @@
     .languageButtonWrapper {
       .languageButton {
         border: none;
-        border-radius: font.$border-radius;
+        border-radius: spacing.$border-radius-md;
         padding: 8px;
 
         &:hover {
-          background-color: colors.$button-background-color;
+          background-color: colors.$white-smoke;
         }
       }
     }
 
     .profileButtonWrapper {
       .profileButton {
-        border: 1px solid colors.$border-grey;
+        border: 1px solid colors.$mortar-grey;
         display: flex;
         align-items: center;
-        border-radius: font.$border-radius;
+        border-radius: spacing.$border-radius-md;
         gap: 8px;
         padding: 8px;
 
         &:hover {
-          box-shadow: 2px 3.2px 6px 2px colors.$shadow-grey;
+          box-shadow: 2px 3.2px 6px 2px colors.$aged-moustache-grey;
         }
       }
     }
