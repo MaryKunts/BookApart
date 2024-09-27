@@ -1,0 +1,12 @@
+@use '../../styles/colors.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+
+  .title {
+    color: colors.$shisha-coal;
+  }
+}
