@@ -1,17 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import AppHeader from './features/header/header';
-import AppFooter from './features/footer/footer';
-import AppContent from './features/content/content';
+import MainPage from "./components/MainPage/MainPage";
+
+import "./app.css";
 
 const App = () => {
-  return (
-    <div className='app-container'>
-      <AppHeader />
-      <AppContent />
-      <AppFooter />
-    </div>
-  )
+  return <MainPage />;
 };
 
 export default App;
