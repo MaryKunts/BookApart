@@ -5,6 +5,7 @@ import {
   faBars,
   faUser,
   faGlobe,
+  faMoneyBill,
 } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./header.module.scss";
@@ -25,12 +26,24 @@ const Header = () => {
       <div className={styles.settingsWrapper}>
         <div className={styles.rentOutButtonWrapper}>
           <button className={styles.rentOutButton}>
-            Сдать жильё на BookApart
+            <FontAwesomeIcon
+              className={styles.rentOutButtonIcon}
+              icon={faMoneyBill}
+              size="xl"
+              style={{ color: "#4a4c4f" }}
+            />
+            <div className={styles.rentOutButtonTitle}>
+              Сдать жильё на BookApart
+            </div>
           </button>
         </div>
         <div className={styles.languageButtonWrapper}>
           <button className={styles.languageButton}>
-            <FontAwesomeIcon icon={faGlobe} size="xl" />
+            <FontAwesomeIcon
+              icon={faGlobe}
+              style={{ color: "#4a4c4f" }}
+              size="xl"
+            />
           </button>
         </div>
         <div className={styles.profileButtonWrapper}>
