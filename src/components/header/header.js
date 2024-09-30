@@ -6,6 +6,7 @@ import {
   faBars,
   faUser,
   faGlobe,
+  faMoneyBill,
 } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./header.module.scss";
