@@ -1,0 +1,42 @@
+@use "../../styles/colors.scss";
+@use "../../styles/font.scss";
+@use "../../styles/spacing.scss";
+
+.preference-box {
+  z-index: 100;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40%;
+  padding: 8px 16px;
+  width: 100%;
+
+  .preference {
+    background-color: colors.$white;
+    border-radius: spacing.$border-radius-s;
+    font-weight: font.$font-weight-bold;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 3.2px 6px 2px colors.$aged-moustache-grey;
+    text-align: center;
+  }
+
+  .heart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      border: none;
+      border-radius: 50%;
+      padding: 4px;
+      transition: transform 0.2s ease-in;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

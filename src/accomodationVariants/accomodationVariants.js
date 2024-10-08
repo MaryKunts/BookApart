@@ -1,8 +1,6 @@
-import { useId } from "react";
-
 export const accomodations = [
   {
-    id: useId(),
+    id: 1,
     city: "Näsum",
     images: [
       "https://www.ronnathaninteriors.com/wp-content/uploads/2021/02/interior-design-of-a-small-house-864x471.jpg",
@@ -16,10 +14,10 @@ export const accomodations = [
     rating: "4,92",
     price: "1092  zł",
     bestPrice: false,
-    usersChoise: true,
+    usersChoice: true,
   },
   {
-    id: useId(),
+    id: 2,
     city: "Näsum",
     images: [
       "https://www.ronnathaninteriors.com/wp-content/uploads/2021/02/interior-design-of-a-small-house-864x471.jpg",
@@ -33,10 +31,10 @@ export const accomodations = [
     rating: "4,92",
     price: "1092  zł",
     bestPrice: false,
-    usersChoise: true,
+    usersChoice: false,
   },
   {
-    id: useId(),
+    id: 3,
     city: "Näsum",
     images: [
       "https://www.ronnathaninteriors.com/wp-content/uploads/2021/02/interior-design-of-a-small-house-864x471.jpg",
@@ -50,10 +48,10 @@ export const accomodations = [
     rating: "4,92",
     price: "1092  zł",
     bestPrice: false,
-    usersChoise: true,
+    usersChoice: false,
   },
   {
-    id: useId(),
+    id: 4,
     city: "Näsum",
     images: [
       "https://www.ronnathaninteriors.com/wp-content/uploads/2021/02/interior-design-of-a-small-house-864x471.jpg",
@@ -66,11 +64,11 @@ export const accomodations = [
     dates: "17-22 нояб.",
     rating: "4,92",
     price: "1092  zł",
-    bestPrice: false,
-    usersChoise: true,
+    bestPrice: true,
+    usersChoice: false,
   },
   {
-    id: useId(),
+    id: 5,
     city: "Näsum",
     images: [
       "https://www.ronnathaninteriors.com/wp-content/uploads/2021/02/interior-design-of-a-small-house-864x471.jpg",
@@ -84,6 +82,40 @@ export const accomodations = [
     rating: "4,92",
     price: "1092  zł",
     bestPrice: false,
-    usersChoise: true,
+    usersChoice: false,
+  },
+  {
+    id: 6,
+    city: "Näsum",
+    images: [
+      "https://www.ronnathaninteriors.com/wp-content/uploads/2021/02/interior-design-of-a-small-house-864x471.jpg",
+      "https://www.carpentry.sg/wp-content/uploads/2020/03/landed-property-march4.jpg",
+      "https://images.livspace-cdn.com/w:750/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/designs-sg-1633500163-pPxOT/ond-2023-1695807364-Q27jh/new-creations-1695807390-wxcRC/bathroom-1697097764-WAIyP/08-1697097812-DHmNi.JPG",
+      "https://hips.hearstapps.com/hmg-prod/images/cochineal-jane-street-0095xxx-1642610173.jpg?crop=1xw:1xh;center,top&resize=980:*",
+    ],
+    country: "Sweden",
+    type: "горы и озеро",
+    dates: "17-22 нояб.",
+    rating: "4,92",
+    price: "1092  zł",
+    bestPrice: false,
+    usersChoice: true,
+  },
+  {
+    id: 7,
+    city: "Näsum",
+    images: [
+      "https://www.ronnathaninteriors.com/wp-content/uploads/2021/02/interior-design-of-a-small-house-864x471.jpg",
+      "https://www.carpentry.sg/wp-content/uploads/2020/03/landed-property-march4.jpg",
+      "https://images.livspace-cdn.com/w:750/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/designs-sg-1633500163-pPxOT/ond-2023-1695807364-Q27jh/new-creations-1695807390-wxcRC/bathroom-1697097764-WAIyP/08-1697097812-DHmNi.JPG",
+      "https://hips.hearstapps.com/hmg-prod/images/cochineal-jane-street-0095xxx-1642610173.jpg?crop=1xw:1xh;center,top&resize=980:*",
+    ],
+    country: "Sweden",
+    type: "горы и озеро",
+    dates: "17-22 нояб.",
+    rating: "4,92",
+    price: "1092  zł",
+    bestPrice: true,
+    usersChoice: false,
   },
 ];
