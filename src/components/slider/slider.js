@@ -28,7 +28,7 @@ function SamplePrevArrow(props) {
 }
 const PhotoSlider = (props) => {
   return (
-    <div className={styles.slider}>
+    <div className={styles.slider} >
       <Slider
         {...{
           dots: false,
@@ -42,7 +42,7 @@ const PhotoSlider = (props) => {
       >
         {props.content.map((item) => (
           <div className={styles.imgContainer}>
-            <img src={item} className={styles.img} />
+            <img src={item} className={styles.img} id={props.id} />
           </div>
         ))}
       </Slider>

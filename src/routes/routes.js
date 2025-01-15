@@ -1,4 +1,4 @@
-export  const ROUTES = {
-    ROOT: '/',
-
-}
+export const ROUTES = {
+  ROOT: "/",
+  HOUSE_PAGE: "rooms/:id",
+};

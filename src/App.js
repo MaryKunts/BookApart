@@ -1,14 +1,20 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainPage from "./components/MainPage/MainPage";
+import MainPage from "../src/pages/MainPage/MainPage";
+import AppartmentPage from "./pages/AppartmentPage/AppartmentPage";
 
 import "./app.css";
+import { ROUTES } from "./routes/routes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainPage />,
-    children: [{}],
+    index: true,
+  },
+  {
+    path: ROUTES.HOUSE_PAGE,
+    element: <AppartmentPage />,
   },
 ]);
 

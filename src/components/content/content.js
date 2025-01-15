@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../card/card";
-
+import { getAppartmentById } from "../../services/getAppartmentId/getAppartmentId";
 import styles from "./content.module.scss";
 
 const Content = ({ accomodations }) => {
@@ -10,12 +10,13 @@ const Content = ({ accomodations }) => {
         {accomodations.map((item) => {
           return (
             <Card
+              id={item.id}
               key={item.id}
               city={item.city}
               country={item.country}
               rating={item.rating}
               dates={item.dates}
-              type={item.type}
+              view={item.view}
               price={item.price}
               images={item.images}
               bestPrice={item.bestPrice}

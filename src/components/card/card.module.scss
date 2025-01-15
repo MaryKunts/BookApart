@@ -1,9 +1,11 @@
 @use "../../styles/spacing.scss";
 @use "../../styles/font.scss";
 @use "../../styles/colors.scss";
+@use "../../styles/breakpoints.scss";
+
 .wrapper {
   display: flex;
-  width: 15%;
+  width: 100%;
   flex-direction: column;
   justify-content: flex-start;
   gap: 5px;
@@ -13,15 +15,20 @@
   cursor: pointer;
   position: relative;
 
-  @media (max-width: 900px) {
-    width: 46%;
+  @include breakpoints.sm-breakpoint {
+    width: 45%;
   }
-  @media (max-width: 1500px) {
+
+  @include breakpoints.md-breakpoint {
     width: 30%;
   }
 
-  @media (max-width: 550px) {
-    width: 100%;
+  @include breakpoints.lg-breakpoint {
+    width: 22%;
+  }
+
+  @include breakpoints.xxl-breakpoint {
+    width: 15%;
   }
 
   .titleBox {
