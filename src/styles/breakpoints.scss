@@ -1,8 +1,8 @@
-$smBreakpoint: 640px;
+$smBreakpoint: 576px;
 $mdBreakpoint: 768px;
-$lgBeakpoint: 1024px;
-$xlBreakpoint: 1280px;
-$xxlBreakpoint: 1536px;
+$lgBeakpoint: 992px;
+$xlBreakpoint: 1200px;
+$xxlBreakpoint: 1400px;
 
 @mixin sm-breakpoint {
   @media (min-width: $smBreakpoint) {
@@ -29,7 +29,7 @@ $xxlBreakpoint: 1536px;
 }
 
 @mixin xxl-breakpoint {
-    @media (min-width: $xxlBreakpoint) {
-      @content;
-    }
+  @media (min-width: $xxlBreakpoint) {
+    @content;
   }
+}

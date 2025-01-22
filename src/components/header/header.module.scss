@@ -6,26 +6,18 @@
 .wrapper {
   position: sticky;
   display: flex;
-  height: 100px;
+  height: 80px;
   align-items: center;
   top: 0;
   left: 0;
-  padding: 0 20px;
   justify-content: space-between;
   background-color: colors.$white;
   z-index: 200;
 
-  @include breakpoints.md-breakpoint {
-    padding: 0 80px;
-  }
-
   .icon-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 30%;
 
-  
     @include breakpoints.md-breakpoint {
       width: auto;
     }
@@ -51,9 +43,10 @@
 
   .settings-wrapper {
     display: flex;
-    width: 70%;
-    justify-content: space-around;
+    justify-content: flex-end;
+    gap: 40px;
     align-items: center;
+    width: 70%;
 
     @include breakpoints.sm-breakpoint {
       width: 50%;
@@ -62,66 +55,53 @@
       justify-content: center;
       width: auto;
     }
-
-    .rent-out-button-wrapper {
-      .rent-out-button {
-        border: none;
-        border-radius: spacing.$border-radius-md;
-        font-size: font.$font-size-s;
-        font-weight: font.$font-weight-bold;
-        font-family: font.$font-family;
-        color: colors.$shisha-coal;
-        padding: 12px;
-        display: flex;
-
-        &:hover {
-          background-color: colors.$white-smoke;
-        }
-
-        .rent-out-button-icon {
-          display: block;
-          
-
-          @include breakpoints.md-breakpoint {
-            display: none;
-          }
-        }
-
-        .rent-out-button-title {
-          display: none;
-
-          @include breakpoints.md-breakpoint {
-            display: block;
-          }
-        }
+    button {
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      border: none;
+      border-radius: spacing.$border-radius-md;
+      color: colors.$shisha-coal;
+      transition: all 0.2s ease-in;
+      &:hover {
+        background-color: colors.$white-smoke;
+      }
+      .icon {
+        width: 40px;
+        height: 40px;
       }
     }
 
-    .languageButtonWrapper {
-      .languageButton {
-        border: none;
-        border-radius: spacing.$border-radius-md;
-        padding: 8px;
-
-        &:hover {
-          background-color: colors.$white-smoke;
-        }
+    .rent-out-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include breakpoints.md-breakpoint {
+        display: none;
       }
     }
-
-    .profileButtonWrapper {
-      .profileButton {
-        border: 1px solid colors.$mortar-grey;
+    .rent-out-button-long {
+      display: none;
+      width: fit-content;
+      font-size: font.$font-size-s;
+      font-weight: font.$font-weight-bold;
+      font-family: font.$font-family;
+      justify-content: center;
+      align-items: center;
+      @include breakpoints.md-breakpoint {
         display: flex;
-        align-items: center;
-        border-radius: spacing.$border-radius-md;
-        gap: 8px;
+      }
+    }
+    .profileButton {
+      border: 1px solid colors.$mortar-grey;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      gap: 20px;
 
-        padding: 8px;
-
-        &:hover {
-          box-shadow: 2px 3.2px 6px 2px colors.$aged-moustache-grey;
-        }
+      &:hover {
+        background-color: none;
+        box-shadow: 2px 2px 4px 2px colors.$mortar-grey;
       }
     }
   }

@@ -1,36 +1,17 @@
 @use "../../styles/breakpoints.scss";
-
+@use "../../styles/spacing.scss";
 .wrapper {
   display: flex;
   flex: 1 0 auto;
-  padding: 20px;
 
-  @include breakpoints.md-breakpoint {
-    padding: 20px 80px;
-  }
   .content-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
+    display: grid;
     width: 100%;
-    height: 100%;
-    column-gap: 0;
-    row-gap: 30px;
-
-    @include breakpoints.sm-breakpoint {
-      column-gap: 10%;
-    }
-
-    @include breakpoints.md-breakpoint {
-      column-gap: 5%;
-    }
-
-    @include breakpoints.lg-breakpoint {
-      column-gap: 4%;
-    }
-
-    @include breakpoints.xxl-breakpoint {
-      column-gap: 2%;
-    }
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    column-gap: spacing.$grid-gap-main;
+    row-gap: spacing.$grid-gap-main;
   }
 }

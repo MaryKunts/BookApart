@@ -25,46 +25,25 @@ const Header = () => {
         </Button>
       </div>
       <div className={styles.settingsWrapper}>
-        <div className={styles.rentOutButtonWrapper}>
-          <Button className={styles.rentOutButton}>
-            <FontAwesomeIcon
-              className={styles.rentOutButtonIcon}
-              icon={faMoneyBill}
-              size="xl"
-              style={{ color: "#4a4c4f" }}
-            />
-            <div className={styles.rentOutButtonTitle}>
-              Сдать жильё на BookApart
-            </div>
-          </Button>
-        </div>
-        <div className={styles.languageButtonWrapper}>
-          <Button className={styles.languageButton}>
-            <FontAwesomeIcon
-              icon={faGlobe}
-              style={{ color: "#4a4c4f" }}
-              size="xl"
-            />
-          </Button>
-        </div>
-        <div className={styles.profileButtonWrapper}>
-          <Button className={styles.profileButton}>
-            <div className={styles.profileMenu}>
-              <FontAwesomeIcon
-                icon={faBars}
-                size="xl"
-                style={{ color: "#4a4c4f" }}
-              />
-            </div>
-            <div className={styles.profileIcon}>
-              <FontAwesomeIcon
-                icon={faUser}
-                size="xl"
-                style={{ color: "#4a4c4f" }}
-              />
-            </div>
-          </Button>
-        </div>
+        <Button className={styles.rentOutButton}>
+          <FontAwesomeIcon
+            icon={faMoneyBill}
+            className={styles.icon}
+            size="2xl"
+          />
+        </Button>
+        <Button className={styles.rentOutButtonLong}>
+          Сдать жильё на BookApart
+        </Button>
+
+        <Button className={styles.languageButton}>
+          <FontAwesomeIcon icon={faGlobe} size="xl" />
+        </Button>
+
+        <Button className={styles.profileButton}>
+          <FontAwesomeIcon icon={faBars} size="lg" />
+          <FontAwesomeIcon icon={faUser} size="lg" />
+        </Button>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainPage from "../src/pages/MainPage/MainPage";
-import AppartmentPage from "./pages/AppartmentPage/AppartmentPage";
+import ApartmentPage from "./pages/ApartmentPage/ApartmentPage";
 
 import "./app.css";
 import { ROUTES } from "./routes/routes";
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
     index: true,
   },
   {
-    path: ROUTES.HOUSE_PAGE,
-    element: <AppartmentPage />,
+    path: ROUTES.APARTMENT_PAGE,
+    element: <ApartmentPage />,
   },
 ]);
 

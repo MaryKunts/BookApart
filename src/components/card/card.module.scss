@@ -4,8 +4,9 @@
 @use "../../styles/breakpoints.scss";
 
 .wrapper {
+  max-width: 300px;
+  height: fit-content;
   display: flex;
-  width: 100%;
   flex-direction: column;
   justify-content: flex-start;
   gap: 5px;
@@ -14,22 +15,6 @@
   color: colors.$shisha-coal;
   cursor: pointer;
   position: relative;
-
-  @include breakpoints.sm-breakpoint {
-    width: 45%;
-  }
-
-  @include breakpoints.md-breakpoint {
-    width: 30%;
-  }
-
-  @include breakpoints.lg-breakpoint {
-    width: 22%;
-  }
-
-  @include breakpoints.xxl-breakpoint {
-    width: 15%;
-  }
 
   .titleBox {
     display: flex;
