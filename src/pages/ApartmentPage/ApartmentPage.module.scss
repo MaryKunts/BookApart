@@ -26,4 +26,9 @@
     padding: 20px 0;
     border-bottom: 1px solid colors.$mortar-grey;
   }
+  .info-and-booking {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+  }
 }
