@@ -1,6 +1,7 @@
 @use "../../../../styles/font.scss";
 .wrapper {
-  min-width: 50%;
+  max-width: 60%;
+
   .info {
     font-size: font.$font-size-s;
     font-weight: font.$font-weight-medium;

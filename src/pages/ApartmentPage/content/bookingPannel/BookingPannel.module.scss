@@ -1,0 +1,62 @@
+@use "../../../../styles/colors.scss";
+@use "../../../../styles/font.scss";
+@use "../../../../styles/spacing.scss";
+.wrapper {
+  font-family: font.$font-family;
+  padding: 20px;
+  border: 1px solid colors.$mortar-grey;
+  border-radius: spacing.$border-radius-md;
+  width: 300px;
+  height: max-content;
+  .title {
+    font-size: font.$font-size-s;
+    font-weight: font.$font-weight-medium;
+    span {
+      font-weight: font.$font-weight-bold;
+      font-size: font.$font-size-md;
+    }
+  }
+  .choose-wrapper {
+    margin: 20px 0;
+  }
+  .booking-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: colors.$white;
+    border: none;
+    background-color: colors.$astro-purple;
+    border-radius: spacing.$border-radius-s;
+  }
+  .subtitle {
+    font-size: font.$font-size-s;
+    text-align: center;
+    letter-spacing: 0.8px;
+    margin: 10px;
+  }
+  .price {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    font-weight: font.$font-weight-light;
+    .underlined {
+      text-decoration: underline;
+    }
+    &-final {
+      width: 100%;
+      padding-top: 32px;
+      margin: 20px 0;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        width: 100%;
+        height: 1px;
+        background-color: colors.$mortar-grey;
+      }
+    }
+  }
+}

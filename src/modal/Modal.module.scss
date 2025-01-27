@@ -1,12 +1,12 @@
 @use "../styles/colors.scss";
 .modal {
   background-color: colors.$white;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 300;
   width: 100vw;
-  max-height: 100vh;
+  height: 100vh;
   overflow-y: scroll;
 }
 .enter {

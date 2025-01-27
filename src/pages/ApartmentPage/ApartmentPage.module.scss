@@ -11,7 +11,7 @@
   max-width: 2520px;
   padding: 0 spacing.$padding-md;
   @include breakpoints.lg-breakpoint {
-    padding: 0 spacing.$padding-lg;
+    padding: 0 120px;
   }
 
   .container {
@@ -21,10 +21,10 @@
     flex: 1 0 auto;
     font-family: font.$font-family;
   }
-  &Description {
-    font-weight: font.$font-weight-medium;
-    padding: 20px 0;
-    border-bottom: 1px solid colors.$mortar-grey;
+  .info-and-booking {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
   }
   .info-and-booking {
     display: flex;

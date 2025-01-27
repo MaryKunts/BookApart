@@ -14,11 +14,9 @@ const ApartmentInfo = ({
   bedrooms,
   beds,
   bathrooms,
-  usersChoice,
+  label,
   rating,
   owner,
-  superowner,
-  period,
   advantages,
   description,
 }) => {
@@ -32,8 +30,12 @@ const ApartmentInfo = ({
           8901
         )} ${beds} кроватей ${String.fromCharCode(8901)} ${bathrooms} ванная`}
       </div>
-      {usersChoice ? <UsersChoiceBar rating={rating} /> : null}
-      <InfoOwner owner={owner} superowner={superowner} period={period} />
+      {label === "usersChoice" ? <UsersChoiceBar rating={rating} /> : null}
+      <InfoOwner
+        owner={owner.name}
+        superowner={owner.superowner}
+        period={owner.period}
+      />
       <InfoAdvantages advantages={advantages} />
       <div className={styles.infoDescription}>{description}</div>
     </div>

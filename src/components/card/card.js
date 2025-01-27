@@ -7,21 +7,10 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./card.module.scss";
 
-const Card = ({
-  images,
-  city,
-  country,
-  rating,
-  view,
-  dates,
-  price,
-  usersChoice,
-  bestPrice,
-  id,
-}) => {
+const Card = ({ images, city, country, rating, view, price, label, id }) => {
   return (
     <Link to={`/rooms/${id}`} className={styles.wrapper}>
-      <CardPreferenceBar usersChoice={usersChoice} bestPrice={bestPrice} />
+      {/* <CardPreferenceBar usersChoice={usersChoice} bestPrice={bestPrice} /> */}
       <PhotoSlider content={images} />
       <div className={styles.titleBox}>
         <div>{`${city}(${country})`}</div>
@@ -31,8 +20,9 @@ const Card = ({
         </div>
       </div>
       <div>{view}</div>
-      <div>{dates}</div>
-      <div className={styles.price}>{`${price} ночь`}</div>
+      <div>{}</div>
+      <div
+        className={styles.price}>{`${price.currency}${price.amount} ночь`}</div>
     </Link>
   );
 };
