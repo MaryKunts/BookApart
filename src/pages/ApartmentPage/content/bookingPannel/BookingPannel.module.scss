@@ -2,6 +2,9 @@
 @use "../../../../styles/font.scss";
 @use "../../../../styles/spacing.scss";
 .wrapper {
+  position: sticky;
+  top: 80px;
+  left: 0;
   font-family: font.$font-family;
   padding: 20px;
   border: 1px solid colors.$mortar-grey;

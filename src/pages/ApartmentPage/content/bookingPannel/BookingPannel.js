@@ -7,36 +7,53 @@ import styles from "./BookingPannel.module.scss";
 
 const BookingPannel = ({ price, orders }) => {
   const { RangePicker } = DatePicker;
-  const [chosenDates, setChosenDates] = useState(1);
+  const getDefaultValue = () => {
+    let result = [];
+
+    if (!orders.length) {
+      result.push(dayjs(), dayjs().add(5, "day"));
+    }
+    orders.map((item, i) => {
+      if (i === 0) {
+        if (dayjs(orders[i].term.start).diff(dayjs(), "days") > 5) {
+          result.push(dayjs(), dayjs(orders[0].term.start));
+        }
+      }
+      if (i < orders.length && orders[i + 1]) {
+        if (
+          dayjs(orders[i + 1].term.start).diff(
+            dayjs(orders[i].term.end),
+            "day"
+          ) > 5
+        ) {
+          result.push(
+            dayjs(orders[i].term.end),
+            dayjs(orders[i].term.end).add(5, "day")
+          );
+        }
+      }
+      if (i === orders.length - 1) {
+        result.push(dayjs(item.term.end), dayjs(item.term.end).add(5, "day"));
+      }
+    });
+
+    return result;
+  };
+  const defaultValue = getDefaultValue().slice(0, 2);
+  const [chosenDates, setChosenDates] = useState(
+    dayjs(defaultValue[1]).diff(dayjs(defaultValue[0]), "day")
+  );
   const dateFormat = "DD.MM.YYYY";
 
   const getDates = (value) => {
     if (!value) {
-      setChosenDates(1);
+      return setChosenDates(1);
     }
     setChosenDates(value[1].diff(value[0], "day"));
   };
 
   const totalAmount = chosenDates * Number(price.amount);
   const serviceFee = Math.round(totalAmount * 0.16);
-
-  // const getDefaultValue = (orders) => {
-  //   let result = [dayjs()];
-  //   let all = [dayjs()];
-  //   if (!orders.length) {
-  //     result.push(dayjs().add(5, "day"));
-  //   }
-  //   orders.map((item) => {
-  //     all.push(item.term.start, item.term.end);
-  //   });
-  //   all.map((item, i) => {
-  //     if (i % 2 === 0) {
-
-  //     }
-  //   });
-
-  //   return result;
-  // };
 
   const booked = orders.map((item) => {
     return {
@@ -68,7 +85,7 @@ const BookingPannel = ({ price, orders }) => {
           minDate={dayjs()}
           maxDate={dayjs().add(1, "year")}
           onChange={getDates}
-          defaultValue={[dayjs(), dayjs().add(1, "day")]}
+          defaultValue={defaultValue}
         />
       </div>
       <Button className={styles.bookingBtn}>Забронировать</Button>
