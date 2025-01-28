@@ -7,6 +7,7 @@ import styles from "./BookingPannel.module.scss";
 
 const BookingPannel = ({ price, orders }) => {
   const { RangePicker } = DatePicker;
+
   const getDefaultValue = () => {
     let result = [];
 

@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
+import { createPortal } from "react-dom";
 
 import styles from "./Modal.module.scss";
 
 const Modal = ({ children, inProp }) => {
+  const modalRef = useRef(null);
+
   useEffect(() => {
     if (inProp) {
       document.body.classList.add("scroll-hidden");
@@ -15,18 +17,16 @@ const Modal = ({ children, inProp }) => {
     };
   }, [inProp]);
 
-  const modalRef = useRef(null);
-
   return createPortal(
     <CSSTransition
       nodeRef={modalRef}
       in={inProp}
-      timeout={1200}
+      timeout={300}
       mountOnEnter
       unmountOnExit
       exit
       classNames={{ ...styles }}>
-      <div ref={modalRef} className={styles.modal}>
+      <div ref={modalRef} className={styles.modalContainer}>
         {children}
       </div>
     </CSSTransition>,

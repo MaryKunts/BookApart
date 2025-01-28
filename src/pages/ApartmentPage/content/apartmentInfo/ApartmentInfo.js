@@ -3,6 +3,7 @@ import React from "react";
 import UsersChoiceBar from "../usersChoiceBar/UsersChoiceBar";
 import InfoOwner from "./infoOwner/InfoOwner";
 import InfoAdvantages from "./infoAdvantages/InfoAdvantages";
+import InfoDescription from "./infoDescription/InfoDescription";
 
 import styles from "./ApartmentInfo.module.scss";
 
@@ -37,7 +38,7 @@ const ApartmentInfo = ({
         period={owner.period}
       />
       <InfoAdvantages advantages={advantages} />
-      <div className={styles.infoDescription}>{description}</div>
+      <InfoDescription description={description} />
     </div>
   );
 };
