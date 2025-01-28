@@ -1,0 +1,42 @@
+@use "../../styles/spacing.scss";
+@use "../../styles/font.scss";
+@use "../../styles/colors.scss";
+.wrapper {
+  display: flex;
+  width: 15%;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+  font-size: font.$font-size-s;
+  font-family: font.$font-family;
+  color: colors.$shisha-coal;
+  cursor: pointer;
+  position: relative;
+
+  @media (max-width: 900px) {
+    width: 46%;
+  }
+  @media (max-width: 1500px) {
+    width: 30%;
+  }
+
+  @media (max-width: 550px) {
+    width: 100%;
+  }
+
+  .titleBox {
+    display: flex;
+    justify-content: space-between;
+    font-weight: font.$font-weight-bold;
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+
+  .price {
+    font-weight: font.$font-weight-bold;
+  }
+}
