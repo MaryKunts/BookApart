@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PhotoSlider from "../slider/slider";
 import CardPreferenceBar from "../preferenceCardBar/preferenceCardBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,14 +12,15 @@ const Card = ({
   city,
   country,
   rating,
-  type,
+  view,
   dates,
   price,
   usersChoice,
   bestPrice,
+  id,
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <Link to={`/rooms/${id}`} className={styles.wrapper}>
       <CardPreferenceBar usersChoice={usersChoice} bestPrice={bestPrice} />
       <PhotoSlider content={images} />
       <div className={styles.titleBox}>
@@ -28,10 +30,10 @@ const Card = ({
           <div>{rating}</div>
         </div>
       </div>
-      <div>{type}</div>
+      <div>{view}</div>
       <div>{dates}</div>
       <div className={styles.price}>{`${price} ночь`}</div>
-    </div>
+    </Link>
   );
 };
 

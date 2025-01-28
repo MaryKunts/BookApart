@@ -6,20 +6,17 @@ module.exports = {
   mode: "development",
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "index_bundle.js",
+    filename: "bundle.js",
   },
   target: "web",
   devServer: {
-    port: "5000",
-    static: {
-      directory: path.join(__dirname, "public"),
-    },
+    port: "3000",
     open: true,
     hot: true,
-    liveReload: true,
+    historyApiFallback: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".css"],
+    extensions: [".js", ".jsx", ".json", ".css", ".scss"],
   },
   module: {
     rules: [
@@ -51,9 +48,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html"),
-    }),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
 };

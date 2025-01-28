@@ -36,13 +36,13 @@ const PhotoSlider = (props) => {
           speed: 500,
           slidesToShow: 1,
           slidesToScroll: 1,
+          adaptiveHeight: true,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
-        }}
-      >
+        }}>
         {props.content.map((item) => (
-          <div className={styles.imgContainer}>
-            <img src={item} className={styles.img} />
+          <div className={styles.sliderItem}>
+            <img src={item} id={props.id} />
           </div>
         ))}
       </Slider>

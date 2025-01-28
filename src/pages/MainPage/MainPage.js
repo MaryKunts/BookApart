@@ -1,8 +1,8 @@
 import React from "react";
 
-import Header from "../header/header";
-import Content from "../content/content";
-import Footer from "../footer/footer";
+import Header from "../../components/header/header";
+import Content from "../../components/content/content";
+import Footer from "../../components/footer/footer";
 import { accomodations } from "../../accomodationVariants/accomodationVariants";
 
 import styles from "./MainPage.module.scss";

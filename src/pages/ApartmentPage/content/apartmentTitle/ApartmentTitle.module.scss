@@ -1,0 +1,10 @@
+@use "../../../../styles/font.scss";
+@use "../../../../styles/colors.scss";
+@use "../../../../styles/spacing.scss";
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-weight: font.$font-weight-bold;
+  font-size: font.$font-size-md;
+}

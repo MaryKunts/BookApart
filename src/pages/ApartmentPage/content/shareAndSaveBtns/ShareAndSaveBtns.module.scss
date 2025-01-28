@@ -1,0 +1,25 @@
+@use "../../../../styles/spacing.scss";
+@use "../../../../styles/colors.scss";
+@use "../../../../styles/font.scss";
+.wrapper {
+  display: flex;
+  gap: 10px;
+
+  button {
+    text-decoration: underline;
+    width: max-content;
+    display: flex;
+    padding: 6px 10px;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    border-radius: spacing.$border-radius-md;
+    font-size: font.$font-size-s;
+    font-weight: font.$font-weight-bold;
+    color: colors.$shisha-coal;
+    transition: all 0.2s ease-in;
+    &:hover {
+      background-color: colors.$white-smoke;
+    }
+  }
+}

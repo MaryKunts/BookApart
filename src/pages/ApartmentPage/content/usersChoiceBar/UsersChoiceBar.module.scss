@@ -1,0 +1,33 @@
+@use "../../../../styles/font.scss";
+@use "../../../../styles/colors.scss";
+@use "../../../../styles/spacing.scss";
+
+.usersChoice {
+  &Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: font.$font-weight-medium;
+    border: 1px solid colors.$mortar-grey;
+    padding: 20px;
+    margin: 40px 0;
+    border-radius: spacing.$border-radius-s;
+  }
+  &Logo {
+    font-weight: font.$font-weight-bold;
+    display: flex;
+    text-align: center;
+    max-width: 120px;
+  }
+  &Title {
+    max-width: 280px;
+  }
+  &Rate {
+    text-align: center;
+    font-weight: font.$font-weight-medium;
+    font-size: font.$font-size-lg;
+    &Img {
+      font-size: 16px;
+    }
+  }
+}

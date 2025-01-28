@@ -1,0 +1,20 @@
+@use "../../../../../styles/font.scss";
+@use "../../../../../styles/colors.scss";
+.infoAdvtgs {
+  padding: 20px 0px;
+  border-bottom: 1px solid colors.$mortar-grey;
+  &Item {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  &Title {
+    font-weight: font.$font-weight-bold;
+  }
+  &Subtitle {
+    padding-top: 10px;
+    color: colors.$mortar-grey;
+    font-weight: font.$font-weight-light;
+  }
+}
