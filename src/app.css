@@ -9,6 +9,10 @@
   padding: 0;
 }
 
+body.scroll-hidden {
+  overflow-y: hidden;
+}
+
 ul[role="list"],
 ol[role="list"] {
   list-style: none;

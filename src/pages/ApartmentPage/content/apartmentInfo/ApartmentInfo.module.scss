@@ -1,12 +1,11 @@
 @use "../../../../styles/font.scss";
 .wrapper {
-  width: 60%;
+  min-width: 50%;
   .info {
     font-size: font.$font-size-s;
     font-weight: font.$font-weight-medium;
 
     &Title {
-      margin-top: 10px;
       font-size: font.$font-size-md;
       font-weight: font.$font-weight-bold;
     }

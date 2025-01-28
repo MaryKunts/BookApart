@@ -1,5 +1,4 @@
 import React from "react";
-import { createPortal } from "react-dom";
 import { useState } from "react";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,9 +9,9 @@ import styles from "./ApartmentImages.module.scss";
 
 const ModalContent = ({ images, onClose }) => {
   return (
-    <div className={styles.modal}>
+    <>
       <div className={styles.modalButtons}>
-        <Button className={styles.modalBack} onClick={onClose}>
+        <Button className={styles.modalBack} onClick={() => onClose()}>
           <FontAwesomeIcon icon="chevron-left" />
         </Button>
         <ShareAndSaveBtns />
@@ -24,7 +23,7 @@ const ModalContent = ({ images, onClose }) => {
           } else return <img src={item} />;
         })}
       </div>
-    </div>
+    </>
   );
 };
 
@@ -49,13 +48,12 @@ const ApartmentImages = ({ images }) => {
           Показать все фото
         </Button>
       </div>
-      {showModal && (
-        <Modal
-          children={
-            <ModalContent images={images} onClose={() => setShowModal(false)} />
-          }
-        />
-      )}
+      <Modal
+        children={
+          <ModalContent images={images} onClose={() => setShowModal(false)} />
+        }
+        inProp={showModal}
+      />
     </>
   );
 };

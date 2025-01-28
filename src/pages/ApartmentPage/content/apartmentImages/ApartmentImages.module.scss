@@ -43,13 +43,6 @@
   }
 }
 .modal {
-  background-color: colors.$white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 300;
-  width: 100vw;
-  transition: all 2s ease-in-out;
   &Buttons {
     background: colors.$white;
     display: flex;

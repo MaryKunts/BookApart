@@ -2,9 +2,24 @@
 .modal {
   background-color: colors.$white;
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   z-index: 300;
   width: 100vw;
-  transition: all 2s ease-in-out;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+.enter {
+  transform: translateY(100%);
+}
+.enter-active {
+  transform: translateY(0);
+  transition: transform 1200ms ease;
+}
+.exit {
+  transform: translateY(0);
+  transition: transform 1200ms ease;
+}
+.exit-active {
+  transform: translateY(100%);
 }
