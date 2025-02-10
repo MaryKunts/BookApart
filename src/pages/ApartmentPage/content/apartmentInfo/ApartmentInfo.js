@@ -1,7 +1,7 @@
 import React from "react";
 
 import UsersChoiceBar from "../usersChoiceBar/UsersChoiceBar";
-import InfoOwner from "./infoOwner/InfoOwner";
+import OwnerInfo from "./ownerInfo/OwnerInfo";
 import InfoAdvantages from "./infoAdvantages/InfoAdvantages";
 
 import styles from "./ApartmentInfo.module.scss";
@@ -20,6 +20,7 @@ const ApartmentInfo = ({
   advantages,
   description,
 }) => {
+  const mapApartmentLabel = { usersChoice: <UsersChoiceBar rating={rating} /> };
   return (
     <div className={styles.wrapper}>
       <div className={styles.infoTitle}>{`${type}, ${city}, ${country}`}</div>
@@ -30,8 +31,8 @@ const ApartmentInfo = ({
           8901
         )} ${beds} кроватей ${String.fromCharCode(8901)} ${bathrooms} ванная`}
       </div>
-      {label === "usersChoice" ? <UsersChoiceBar rating={rating} /> : null}
-      <InfoOwner
+      {label && mapApartmentLabel[label]}
+      <OwnerInfo
         owner={owner.name}
         superowner={owner.superowner}
         period={owner.period}

@@ -1,0 +1,17 @@
+@use "../../../../../styles/colors.scss";
+@use "../../../../../styles/font.scss";
+.infoOwner {
+  padding: 20px 0;
+  border-bottom: 1px solid colors.$mortar-grey;
+  &Title {
+    font-weight: font.$font-weight-bold;
+  }
+  &Subtitle {
+    padding-top: 10px;
+    color: colors.$mortar-grey;
+    font-weight: font.$font-weight-light;
+    &Wrapper {
+      display: flex;
+    }
+  }
+}

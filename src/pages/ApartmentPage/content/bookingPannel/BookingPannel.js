@@ -3,57 +3,49 @@ import { Button } from "@headlessui/react";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
 
+import getPriceWithCurrency from "../../../../utilits/getPriceWithCurrency/getPriceWithCurrency";
+
 import styles from "./BookingPannel.module.scss";
+
+const CLOSEST_DAYS = 5;
 
 const BookingPannel = ({ price, orders }) => {
   const { RangePicker } = DatePicker;
+
   const getDefaultValue = () => {
-    let result = [];
+    let startDate = dayjs();
+    let endDate = startDate.add(CLOSEST_DAYS, "days");
 
-    if (!orders.length) {
-      result.push(dayjs(), dayjs().add(5, "day"));
+    for (const element of orders) {
+      const orderStartDate = dayjs(element.term.start);
+      const orderEndDate = dayjs(element.term.end);
+
+      if (
+        endDate.isBefore(orderStartDate) &&
+        startDate.isBefore(orderStartDate)
+      ) {
+        break;
+      }
+
+      startDate = orderEndDate.add(1, "day");
+      endDate = orderEndDate.add(CLOSEST_DAYS + 1, "day");
     }
-    orders.map((item, i) => {
-      if (i === 0) {
-        if (dayjs(orders[i].term.start).diff(dayjs(), "days") > 5) {
-          result.push(dayjs(), dayjs(orders[0].term.start));
-        }
-      }
-      if (i < orders.length && orders[i + 1]) {
-        if (
-          dayjs(orders[i + 1].term.start).diff(
-            dayjs(orders[i].term.end),
-            "day"
-          ) > 5
-        ) {
-          result.push(
-            dayjs(orders[i].term.end),
-            dayjs(orders[i].term.end).add(5, "day")
-          );
-        }
-      }
-      if (i === orders.length - 1) {
-        result.push(dayjs(item.term.end), dayjs(item.term.end).add(5, "day"));
-      }
-    });
 
-    return result;
+    return [startDate, endDate];
   };
-  const defaultValue = getDefaultValue().slice(0, 2);
-  const [chosenDates, setChosenDates] = useState(
+  const defaultValue = getDefaultValue();
+
+  const [daysNumber, setDaysNumber] = useState(
     dayjs(defaultValue[1]).diff(dayjs(defaultValue[0]), "day")
   );
   const dateFormat = "DD.MM.YYYY";
 
-  const getDates = (value) => {
+  const getDaysNumber = (value) => {
     if (!value) {
-      return setChosenDates(1);
+      return setDaysNumber(1);
     }
-    setChosenDates(value[1].diff(value[0], "day"));
+    setDaysNumber(value[1].diff(value[0], "day"));
   };
-
-  const totalAmount = chosenDates * Number(price.amount);
-  const serviceFee = Math.round(totalAmount * 0.16);
 
   const booked = orders.map((item) => {
     return {
@@ -73,7 +65,7 @@ const BookingPannel = ({ price, orders }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        <span>{price.currency}</span> <span>{price.amount}</span> ночь
+        {getPriceWithCurrency(price.amount, price.currency)} ночь
       </div>
       <div className={styles.chooseWrapper}>
         <RangePicker
@@ -84,27 +76,43 @@ const BookingPannel = ({ price, orders }) => {
           disabledDate={disabledDate}
           minDate={dayjs()}
           maxDate={dayjs().add(1, "year")}
-          onChange={getDates}
-          defaultValue={defaultValue}
+          onChange={getDaysNumber}
+          defaultValue={getDefaultValue()}
         />
       </div>
       <Button className={styles.bookingBtn}>Забронировать</Button>
       <div className={styles.subtitle}>Пока вы ни за что не платите</div>
       <div className={styles.price}>
         <div className={styles.underlined}>
-          {`${price.currency}${price.amount} x ${chosenDates} `}
-          {chosenDates === 1 ? "ночь" : chosenDates < 5 ? "ночи" : "ночей"}
+          {getPriceWithCurrency(price.amount, price.currency)}
+          {` x ${daysNumber} `}
+          {daysNumber === 1 ? "ночь" : daysNumber < 5 ? "ночи" : "ночей"}
         </div>
 
-        <div>{`${price.currency}${totalAmount}`}</div>
+        <div>
+          {getPriceWithCurrency(
+            daysNumber * Number(price.amount),
+            price.currency
+          )}
+        </div>
       </div>
       <div className={styles.price}>
-        <div className={styles.underlined}>Сервисный сбор Airbnb</div>
-        <div>{`${price.currency}${serviceFee}`}</div>
+        <div className={styles.underlined}>Сервисный сбор BookApt</div>
+        <div>
+          {getPriceWithCurrency(
+            Math.round(daysNumber * Number(price.amount) * 0.16),
+            price.currency
+          )}
+        </div>
       </div>
       <div className={styles.priceFinal}>
         <div className={styles.total}>Всего (без учета налогов)</div>
-        <div>{`${price.currency}${totalAmount + serviceFee}`}</div>
+        <div>
+          {getPriceWithCurrency(
+            Math.round(daysNumber * Number(price.amount) * 1.16),
+            price.currency
+          )}
+        </div>
       </div>
     </div>
   );
