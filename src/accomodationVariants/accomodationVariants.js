@@ -18,22 +18,22 @@ export const accomodations = [
       {
         customer: "Adam Doe",
         term: {
-          start: new Date("2025-02-01").getTime(),
-          end: new Date("2025-02-07").getTime(),
+          start: "2025-02-01",
+          end: "2025-02-07",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-09").getTime(),
-          end: new Date("2025-02-12").getTime(),
+          start: "2025-02-09",
+          end: "2025-02-12",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-22").getTime(),
-          end: new Date("2025-02-28").getTime(),
+          start: "2025-02-22",
+          end: "2025-02-28",
         },
       },
     ],
@@ -56,7 +56,7 @@ export const accomodations = [
       period: "2 года",
     },
     description:
-      "LakeView Cabin - это традиционный шведский деревянный домик, недавно отремонтированный в скандинавском стиле. Прямой выход к озеру с собственной купальной платформой, летним душем и сауной, в центре красивого тихого леса. Идеально подходит для пар, зимних купальщиков, любителей жизни и природы. Минимум 3 дня, скидка 20% при бронировании на 7 дней.",
+      "LakeView Cabin - это традиционный шведский деревянный домик, недавно отремонтированный в скандинавском стиле. Прямой выход к озеру с собственной купальной платформой, летним душем и сауной, в центре красивого тихого леса. Идеально подходит для пар, зимних купальщиков, любителей жизни и природы. Минимум 3 дня, скидка 20% при бронировании на 7 дней. LakeView Cabin - это традиционный шведский деревянный домик, недавно отремонтированный в скандинавском стиле. Прямой выход к озеру с собственной купальной платформой, летним душем и сауной, в центре красивого тихого леса. Идеально подходит для пар, зимних купальщиков, любителей жизни и природы. Минимум 3 дня, скидка 20% при бронировании на 7 дней. ",
     advantages: [
       {
         name: "Первоклассное заселение",
@@ -94,22 +94,22 @@ export const accomodations = [
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-01").getTime(),
-          end: new Date("2025-02-07").getTime(),
+          start: "2025-02-01",
+          end: "2025-02-07",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-09").getTime(),
-          end: new Date("2025-02-16").getTime(),
+          start: "2025-02-09",
+          end: "2025-02-16",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-18").getTime(),
-          end: new Date("2025-02-24").getTime(),
+          start: "2025-02-18",
+          end: "2025-02-24",
         },
       },
     ],
@@ -170,22 +170,22 @@ export const accomodations = [
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-01").getTime(),
-          end: new Date("2025-02-07").getTime(),
+          start: "2025-02-01",
+          end: "2025-02-07",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-09").getTime(),
-          end: new Date("2025-02-16").getTime(),
+          start: "2025-02-09",
+          end: "2025-02-16",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-18").getTime(),
-          end: new Date("2025-02-24").getTime(),
+          start: "2025-02-18",
+          end: "2025-02-24",
         },
       },
     ],
@@ -246,22 +246,22 @@ export const accomodations = [
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-01").getTime(),
-          end: new Date("2025-02-07").getTime(),
+          start: "2025-02-01",
+          end: "2025-02-07",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-09").getTime(),
-          end: new Date("2025-02-16").getTime(),
+          start: "2025-02-09",
+          end: "2025-02-16",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-18").getTime(),
-          end: new Date("2025-02-24").getTime(),
+          start: "2025-02-18",
+          end: "2025-02-24",
         },
       },
     ],
@@ -322,22 +322,22 @@ export const accomodations = [
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-01").getTime(),
-          end: new Date("2025-02-07").getTime(),
+          start: "2025-02-01",
+          end: "2025-02-07",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-09").getTime(),
-          end: new Date("2025-02-16").getTime(),
+          start: "2025-02-09",
+          end: "2025-02-16",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-18").getTime(),
-          end: new Date("2025-02-24").getTime(),
+          start: "2025-02-18",
+          end: "2025-02-24",
         },
       },
     ],
@@ -398,22 +398,22 @@ export const accomodations = [
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-01").getTime(),
-          end: new Date("2025-02-07").getTime(),
+          start: "2025-02-01",
+          end: "2025-02-07",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-09").getTime(),
-          end: new Date("2025-02-16").getTime(),
+          start: "2025-02-09",
+          end: "2025-02-16",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-18").getTime(),
-          end: new Date("2025-02-24").getTime(),
+          start: "2025-02-18",
+          end: "2025-02-24",
         },
       },
     ],
@@ -474,22 +474,22 @@ export const accomodations = [
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-01").getTime(),
-          end: new Date("2025-02-07").getTime(),
+          start: "2025-02-01",
+          end: "2025-02-07",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-09").getTime(),
-          end: new Date("2025-02-16").getTime(),
+          start: "2025-02-09",
+          end: "2025-02-16",
         },
       },
       {
         customer: "John Doe",
         term: {
-          start: new Date("2025-02-18").getTime(),
-          end: new Date("2025-02-24").getTime(),
+          start: "2025-02-18",
+          end: "2025-02-24",
         },
       },
     ],
