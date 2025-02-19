@@ -2,11 +2,11 @@
 @use "../../../../styles/colors.scss";
 @use "../../../../styles/font.scss";
 .images {
-  margin-top: 16px;
+  margin-top: spacing.$indent-16;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 8px;
+  gap: spacing.$indent-8;
   position: relative;
 
   .mainImg {
@@ -31,9 +31,9 @@
     right: 2%;
     width: max-content;
     display: flex;
-    padding: 6px 10px;
+    padding: spacing.$indent-8 spacing.$indent-12;
     align-items: center;
-    gap: 5px;
+    gap: spacing.$indent-4;
     font-size: font.$font-size-s;
     font-weight: font.$font-weight-bold;
     color: colors.$shisha-coal;

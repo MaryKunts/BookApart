@@ -4,7 +4,7 @@ import PhotoSlider from "../slider/slider";
 import CardPreferenceBar from "../preferenceCardBar/preferenceCardBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import getPriceWithCurrency from "../../utilits/getPriceWithCurrency/getPriceWithCurrency";
+import getPriceWithCurrency from "../../utils/getPriceWithCurrency/getPriceWithCurrency";
 
 import styles from "./card.module.scss";
 
@@ -21,7 +21,6 @@ const Card = ({ images, city, country, rating, view, price, label, id }) => {
         </div>
       </div>
       <div>{view}</div>
-      <div>{}</div>
       <div className={styles.price}>
         {getPriceWithCurrency(price.amount, price.currency)} ночь
       </div>

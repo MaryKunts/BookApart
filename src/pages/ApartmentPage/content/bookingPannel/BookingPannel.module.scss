@@ -3,10 +3,10 @@
 @use "../../../../styles/spacing.scss";
 .wrapper {
   position: sticky;
-  top: 80px;
+  top: spacing.$indent-80;
   left: 0;
   font-family: font.$font-family;
-  padding: 20px;
+  padding: spacing.$indent-20;
   border: 1px solid colors.$mortar-grey;
   border-radius: spacing.$border-radius-md;
   width: 300px;
@@ -20,7 +20,7 @@
     }
   }
   .choose-wrapper {
-    margin: 20px 0;
+    margin: spacing.$indent-20 0;
   }
   .booking-btn {
     width: 100%;
@@ -40,15 +40,15 @@
   .price {
     display: flex;
     justify-content: space-between;
-    padding-top: 16px;
+    padding-top: spacing.$indent-16;
     font-weight: font.$font-weight-light;
     .underlined {
       text-decoration: underline;
     }
     &-final {
       width: 100%;
-      padding-top: 32px;
-      margin: 20px 0;
+      padding-top: spacing.$indent-32;
+      margin: spacing.$indent-20 0;
       position: relative;
       display: flex;
       justify-content: space-between;

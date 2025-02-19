@@ -3,7 +3,8 @@ import { Button } from "@headlessui/react";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
 
-import getPriceWithCurrency from "../../../../utilits/getPriceWithCurrency/getPriceWithCurrency";
+import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPriceWithCurrency";
+import { DATE_FORMAT } from "../../../../const/dates";
 
 import styles from "./BookingPannel.module.scss";
 
@@ -38,7 +39,6 @@ const BookingPannel = ({ price, orders }) => {
   const [daysNumber, setDaysNumber] = useState(
     dayjs(defaultValue[1]).diff(dayjs(defaultValue[0]), "day")
   );
-  const dateFormat = "DD.MM.YYYY";
 
   const getDaysNumber = (value) => {
     if (!value) {
@@ -72,7 +72,7 @@ const BookingPannel = ({ price, orders }) => {
           placeholder={["Прибытие", "Выезд"]}
           className={styles.picker}
           size="large"
-          format={dateFormat}
+          format={DATE_FORMAT}
           disabledDate={disabledDate}
           minDate={dayjs()}
           maxDate={dayjs().add(1, "year")}

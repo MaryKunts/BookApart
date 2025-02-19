@@ -3,16 +3,16 @@
 @use "../../../../styles/font.scss";
 .wrapper {
   display: flex;
-  gap: 10px;
+  gap: spacing.$indent-12;
 
   button {
     font-family: font.$font-family;
     text-decoration: underline;
     width: max-content;
     display: flex;
-    padding: 6px 10px;
+    padding: spacing.$indent-8 spacing.$indent-12;
     align-items: center;
-    gap: 5px;
+    gap: spacing.$indent-4;
     border: none;
     border-radius: spacing.$border-radius-md;
     font-size: font.$font-size-s;
