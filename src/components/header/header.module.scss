@@ -31,7 +31,7 @@
         font-size: font.$font-size-lg;
         font-weight: font.$font-weight-bold;
         font-family: font.$font-family;
-        padding-top: 10px;
+        padding-top: spacing.$indent-12;
         display: none;
 
         @include breakpoints.md-breakpoint {
@@ -44,7 +44,7 @@
   .settings-wrapper {
     display: flex;
     justify-content: flex-end;
-    gap: 40px;
+    gap: spacing.$indent-40;
     align-items: center;
     width: 70%;
 
@@ -58,7 +58,7 @@
     button {
       width: 40px;
       height: 40px;
-      padding: 10px;
+      padding: spacing.$indent-12;
       border: none;
       border-radius: spacing.$border-radius-md;
       color: colors.$shisha-coal;
@@ -97,7 +97,7 @@
       display: flex;
       align-items: center;
       width: fit-content;
-      gap: 20px;
+      gap: spacing.$indent-20;
 
       &:hover {
         background-color: none;

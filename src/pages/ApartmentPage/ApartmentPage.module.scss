@@ -11,7 +11,7 @@
   max-width: 2520px;
   padding: 0 spacing.$padding-md;
   @include breakpoints.lg-breakpoint {
-    padding: 0 120px;
+    padding: 0 spacing.$indent-120;
   }
 
   .container {
@@ -22,7 +22,7 @@
     font-family: font.$font-family;
   }
   .info-and-booking {
-    margin-top: 40px;
+    margin-top: spacing.$indent-40;
     display: flex;
     position: relative;
     justify-content: space-between;
