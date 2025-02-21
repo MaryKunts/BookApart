@@ -15,7 +15,7 @@ const Modal = ({ children, inProp }) => {
     return () => {
       document.body.classList.remove("scroll-hidden");
     };
-  }, [inProp]);
+  }, [inPropinProp]);
 
   return createPortal(
     <CSSTransition

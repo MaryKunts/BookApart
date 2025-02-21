@@ -9,7 +9,7 @@
   flex-direction: column;
   margin: auto;
   max-width: 2520px;
-  padding: 0 spacing.$padding-md;
+  padding: 0 spacing.$indent-80;
   @include breakpoints.lg-breakpoint {
     padding: 0 spacing.$indent-120;
   }
