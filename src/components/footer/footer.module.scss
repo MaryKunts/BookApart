@@ -1,7 +1,6 @@
-@use '../../styles/colors.scss';
+@use "../../styles/colors.scss";
 
 .wrapper {
-  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +8,6 @@
   width: 100%;
   background-color: colors.$white;
   z-index: 200;
-
 
   .title {
     color: colors.$shisha-coal;

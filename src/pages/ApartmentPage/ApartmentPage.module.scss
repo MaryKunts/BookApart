@@ -9,9 +9,9 @@
   flex-direction: column;
   margin: auto;
   max-width: 2520px;
-  padding: 0 spacing.$padding-md;
+  padding: 0 spacing.$indent-80;
   @include breakpoints.lg-breakpoint {
-    padding: 0 spacing.$padding-lg;
+    padding: 0 spacing.$indent-120;
   }
 
   .container {
@@ -21,14 +21,10 @@
     flex: 1 0 auto;
     font-family: font.$font-family;
   }
-  &Description {
-    font-weight: font.$font-weight-medium;
-    padding: 20px 0;
-    border-bottom: 1px solid colors.$mortar-grey;
-  }
   .info-and-booking {
+    margin-top: spacing.$indent-40;
     display: flex;
-    margin-top: 40px;
+    position: relative;
     justify-content: space-between;
   }
 }

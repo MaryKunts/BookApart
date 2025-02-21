@@ -9,9 +9,9 @@
     justify-content: space-between;
     font-weight: font.$font-weight-medium;
     border: 1px solid colors.$mortar-grey;
-    padding: 20px;
-    margin: 40px 0;
-    border-radius: spacing.$border-radius-s;
+    padding: spacing.$indent-20;
+    margin: spacing.$indent-40 0;
+    border-radius: spacing.$border-radius-10;
   }
   &Logo {
     font-weight: font.$font-weight-bold;

@@ -6,12 +6,14 @@ import styles from "./Modal.module.scss";
 
 const Modal = ({ children, inProp }) => {
   useEffect(() => {
-    document.body.classList.add("scroll-hidden");
+    if (inProp) {
+      document.body.classList.add("scroll-hidden");
+    }
 
     return () => {
       document.body.classList.remove("scroll-hidden");
     };
-  }, []);
+  }, [inProp]);
 
   const modalRef = useRef(null);
 

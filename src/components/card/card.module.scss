@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 5px;
+  gap: spacing.$indent-4;
   font-size: font.$font-size-s;
   font-family: font.$font-family;
   color: colors.$shisha-coal;
@@ -24,7 +24,7 @@
     .rating {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: spacing.$indent-4;
     }
   }
 
