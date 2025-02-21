@@ -11,7 +11,6 @@ import styles from "./card.module.scss";
 const Card = ({ images, city, country, rating, view, price, label, id }) => {
   return (
     <Link to={`/rooms/${id}`} className={styles.wrapper}>
-      {/* <CardPreferenceBar usersChoice={usersChoice} bestPrice={bestPrice} /> */}
       <PhotoSlider content={images} />
       <div className={styles.titleBox}>
         <div>{`${city}(${country})`}</div>

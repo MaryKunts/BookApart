@@ -1,7 +1,7 @@
 import React from "react";
 
 const getPriceWithCurrency = (amount, currency) => {
-  return <span> {`${currency}${amount}`}</span>;
+  return `${currency}${amount}`;
 };
 
 export default getPriceWithCurrency;

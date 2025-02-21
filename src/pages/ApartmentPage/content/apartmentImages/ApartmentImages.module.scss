@@ -12,23 +12,23 @@
   .mainImg {
     grid-column: 1 / 3;
     grid-row: 1 / 3;
-    border-top-left-radius: spacing.$border-radius-s;
-    border-bottom-left-radius: spacing.$border-radius-s;
+    border-top-left-radius: spacing.$border-radius-10;
+    border-bottom-left-radius: spacing.$border-radius-10;
   }
   .rightTopImg {
-    border-top-right-radius: spacing.$border-radius-s;
+    border-top-right-radius: spacing.$border-radius-10;
   }
   .rightBottomImg {
-    border-bottom-right-radius: spacing.$border-radius-s;
+    border-bottom-right-radius: spacing.$border-radius-10;
   }
   img {
     object-fit: cover;
     height: 100%;
   }
-  button {
+  .showAllButton {
     position: absolute;
-    top: 86%;
-    right: 2%;
+    bottom: spacing.$indent-12;
+    right: spacing.$indent-40;
     width: max-content;
     display: flex;
     padding: spacing.$indent-8 spacing.$indent-12;
@@ -39,7 +39,7 @@
     color: colors.$shisha-coal;
     background-color: colors.$white;
     border: 1px solid colors.$black;
-    border-radius: spacing.$border-radius-s;
+    border-radius: spacing.$border-radius-10;
   }
 }
 .modal {

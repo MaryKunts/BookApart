@@ -65,7 +65,7 @@ const BookingPannel = ({ price, orders }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        {getPriceWithCurrency(price.amount, price.currency)} ночь
+        <span>{getPriceWithCurrency(price.amount, price.currency)}</span> ночь
       </div>
       <div className={styles.chooseWrapper}>
         <RangePicker
