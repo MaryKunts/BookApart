@@ -4,11 +4,12 @@ import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Modal from "../../../../modal/Modal";
+import { useModal } from "../../../../hooks/useModal/useModal";
 import ImagesModalContent from "./imagesModalContent/ImagesModalContent";
 import styles from "./ApartmentImages.module.scss";
 
 const ApartmentImages = ({ images }) => {
-  const [showModal, setShowModal] = useState(false);
+  const { isOpen, openModal, closeModal } = useModal();
 
   return (
     <>
@@ -18,9 +19,7 @@ const ApartmentImages = ({ images }) => {
         <img className={styles.rightTopImg} src={images[2]} />
         <img src={images[3]} />
         <img className={styles.rightBottomImg} src={images[4]} />
-        <Button
-          className={styles.showAllButton}
-          onClick={() => setShowModal(true)}>
+        <Button className={styles.showAllButton} onClick={openModal}>
           <div className={styles.showAllButtonImages}>
             <FontAwesomeIcon icon="ellipsis-vertical" size="sm" />
             <FontAwesomeIcon icon="ellipsis-vertical" size="sm" />
@@ -29,12 +28,8 @@ const ApartmentImages = ({ images }) => {
           Показать все фото
         </Button>
       </div>
-      <Modal inProp={showModal}>
-        <ImagesModalContent
-          images={images}
-          onClose={() => setShowModal(false)}
-          inProp={showModal}
-        />
+      <Modal inProp={isOpen} showOverlay={false}>
+        <ImagesModalContent images={images} onClose={closeModal} />
       </Modal>
     </>
   );

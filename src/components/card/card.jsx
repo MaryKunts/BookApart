@@ -8,7 +8,7 @@ import getPriceWithCurrency from "../../utils/getPriceWithCurrency/getPriceWithC
 
 import styles from "./card.module.scss";
 
-const Card = ({ images, city, country, rating, view, price, label, id }) => {
+const Card = ({ images, city, country, rating, view, price, id }) => {
   return (
     <Link to={`/rooms/${id}`} className={styles.wrapper}>
       <PhotoSlider content={images} />

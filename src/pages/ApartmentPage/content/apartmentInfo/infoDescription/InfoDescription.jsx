@@ -3,29 +3,25 @@ import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Modal from "../../../../../modal/Modal";
+import { useModal } from "../../../../../hooks/useModal/useModal";
 import styles from "./InfoDescription.module.scss";
 
 const InfoDescription = ({ description }) => {
-  const [showModal, setShowModal] = useState(false);
+  const { isOpen, openModal, closeModal } = useModal();
 
   return (
     <div className={styles.wrapper}>
       {description.length > 400 ? (
         <>
-          <div className={styles.contentBig}>{description}</div>
-          <Button
-            className={styles.showMoreButton}
-            onClick={() => setShowModal(true)}>
+          <div className={styles.content}>{description}</div>
+          <Button className={styles.showMoreButton} onClick={openModal}>
             Показать еще
             <FontAwesomeIcon icon="chevron-right" className={styles.icon} />
           </Button>
-          <Modal inProp={showModal}>
-            <div className={styles.overlay}></div>
+          <Modal inProp={isOpen} showOverlay={true}>
             <div className={styles.modalWrapper}>
               <div className={styles.modalHeader}>
-                <Button
-                  onClick={() => setShowModal(false)}
-                  className={styles.closeButton}>
+                <Button onClick={closeModal} className={styles.closeButton}>
                   <FontAwesomeIcon icon="xmark" />
                 </Button>
               </div>

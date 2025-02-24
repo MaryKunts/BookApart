@@ -1,6 +1,7 @@
 @use "../../../../styles/spacing.scss";
 @use "../../../../styles/colors.scss";
 @use "../../../../styles/font.scss";
+
 .images {
   margin-top: spacing.$indent-16;
   display: grid;
@@ -15,16 +16,20 @@
     border-top-left-radius: spacing.$border-radius-10;
     border-bottom-left-radius: spacing.$border-radius-10;
   }
+
   .rightTopImg {
     border-top-right-radius: spacing.$border-radius-10;
   }
+
   .rightBottomImg {
     border-bottom-right-radius: spacing.$border-radius-10;
   }
+
   img {
     object-fit: cover;
     height: 100%;
   }
+
   .showAllButton {
     position: absolute;
     bottom: spacing.$indent-12;

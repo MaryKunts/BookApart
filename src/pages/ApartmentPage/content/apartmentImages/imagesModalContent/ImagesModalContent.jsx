@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ShareAndSaveBtns from "../../shareAndSaveBtns/ShareAndSaveBtns";
 import styles from "./ImagesModalContent.module.scss";
 
-const ImagesModalContent = ({ images, onClose, inProp }) => {
+const ImagesModalContent = ({ images, onClose }) => {
   return (
     <div className={styles.modal}>
       <div className={styles.modalButtons}>

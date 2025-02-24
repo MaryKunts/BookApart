@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 
 import styles from "./Modal.module.scss";
 
-const Modal = ({ children, inProp }) => {
+const Modal = ({ children, inProp, showOverlay }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Modal = ({ children, inProp }) => {
     return () => {
       document.body.classList.remove("scroll-hidden");
     };
-  }, [inPropinProp]);
+  }, [inProp]);
 
   return createPortal(
     <CSSTransition
@@ -27,6 +27,7 @@ const Modal = ({ children, inProp }) => {
       exit
       classNames={{ ...styles }}>
       <div ref={modalRef} className={styles.modalContainer}>
+        {showOverlay ? <div className={styles.overlay}></div> : null}
         {children}
       </div>
     </CSSTransition>,
