@@ -1,0 +1,88 @@
+@use "../../../../../styles/colors.scss";
+@use "../../../../../styles/font.scss";
+@use "../../../../../styles/spacing.scss";
+@use "../../../../../styles/breakpoints.scss";
+
+.wrapper {
+  padding: spacing.$indent-40 0;
+  font-weight: font.$font-weight-light;
+  font-family: font.$font-family;
+  border-bottom: 1px solid colors.$mortar-grey;
+
+  .content {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    line-height: font.$font-size-md;
+    max-width: 600px;
+    height: 144px;
+    overflow: hidden;
+  }
+
+  .showMoreButton {
+    display: flex;
+    align-items: center;
+    gap: spacing.$indent-4;
+    border: none;
+    text-decoration: underline;
+    font-weight: font.$font-weight-medium;
+    margin-top: spacing.$indent-20;
+
+    .icon {
+      color: colors.$shisha-coal;
+    }
+  }
+}
+
+.modalWrapper {
+  position: relative;
+  font-family: font.$font-family;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 80%;
+  overflow-y: scroll;
+  background-color: colors.$white;
+  padding: 0 spacing.$indent-20 spacing.$indent-40 spacing.$indent-20;
+  border-radius: spacing.$border-radius-20;
+  box-shadow: 0 2px 4px 1px colors.$mortar-grey;
+  @include breakpoints.lg-breakpoint {
+    flex: 0 0 780px;
+  }
+}
+
+.modalTitle {
+  font-weight: font.$font-weight-bold;
+  font-size: font.$font-size-md;
+  padding: spacing.$indent-20 0;
+}
+
+.modalHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background-color: colors.$white;
+}
+
+.closeButton {
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: spacing.$border-radius-round;
+  font-size: font.$font-size-md;
+  color: colors.$shisha-coal;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    background-color: colors.$white-smoke;
+  }
+}
+
+.modalContent {
+  line-height: font.$font-size-md;
+  color: colors.$shisha-coal;
+  font-weight: font.$font-weight-light;
+}

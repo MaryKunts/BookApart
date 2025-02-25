@@ -1,18 +1,22 @@
 @use "../../../../../styles/font.scss";
 @use "../../../../../styles/colors.scss";
 @use "../../../../../styles/spacing.scss";
+
 .infoAdvtgs {
   padding: spacing.$indent-20 0px;
   border-bottom: 1px solid colors.$mortar-grey;
+
   &Item {
     padding: spacing.$indent-20 0;
     display: flex;
     align-items: center;
     gap: spacing.$indent-20;
   }
+
   &Title {
     font-weight: font.$font-weight-bold;
   }
+
   &Subtitle {
     padding-top: spacing.$indent-12;
     color: colors.$mortar-grey;

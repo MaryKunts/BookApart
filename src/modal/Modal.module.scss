@@ -1,4 +1,5 @@
 @use "../styles/colors.scss";
+
 .modal {
   background-color: colors.$white;
   position: fixed;
@@ -9,17 +10,41 @@
   height: 100vh;
   overflow-y: scroll;
 }
+
 .enter {
   transform: translateY(100%);
 }
+
 .enter-active {
   transform: translateY(0);
-  transition: transform 1200ms ease;
+  transition: transform 300ms ease;
 }
+
 .exit {
   transform: translateY(0);
-  transition: transform 1200ms ease;
+  transition: transform 300ms ease;
 }
+
 .exit-active {
   transform: translateY(100%);
+}
+
+.modalContainer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 300;
+  overflow: hidden;
+}
+
+.overlay {
+  background-color: colors.$black-transparent;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }

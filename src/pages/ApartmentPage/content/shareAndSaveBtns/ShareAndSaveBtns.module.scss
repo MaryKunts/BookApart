@@ -1,6 +1,7 @@
 @use "../../../../styles/spacing.scss";
 @use "../../../../styles/colors.scss";
 @use "../../../../styles/font.scss";
+
 .wrapper {
   display: flex;
   gap: spacing.$indent-12;
@@ -19,6 +20,7 @@
     font-weight: font.$font-weight-bold;
     color: colors.$shisha-coal;
     transition: all 0.2s ease-in;
+
     &:hover {
       background-color: colors.$white-smoke;
     }

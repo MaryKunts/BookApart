@@ -3,32 +3,14 @@ import { useState } from "react";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import ShareAndSaveBtns from "../shareAndSaveBtns/ShareAndSaveBtns";
 import Modal from "../../../../modal/Modal";
+import { useModal } from "../../../../hooks/useModal/useModal";
+import ImagesModalContent from "./imagesModalContent/ImagesModalContent";
 import styles from "./ApartmentImages.module.scss";
 
-const ModalContent = ({ images, onClose }) => {
-  return (
-    <>
-      <div className={styles.modalButtons}>
-        <Button className={styles.modalBack} onClick={() => onClose()}>
-          <FontAwesomeIcon icon="chevron-left" />
-        </Button>
-        <ShareAndSaveBtns />
-      </div>
-      <div className={styles.modalContent}>
-        {images.map((item, i) => {
-          if (i === 0 || i % 3 === 0) {
-            return <img className={styles.modalContentBig} src={item} />;
-          } else return <img src={item} />;
-        })}
-      </div>
-    </>
-  );
-};
-
 const ApartmentImages = ({ images }) => {
-  const [showModal, setShowModal] = useState(false);
+  const { isOpen, openModal, closeModal } = useModal();
+
   return (
     <>
       <div className={styles.images}>
@@ -37,9 +19,7 @@ const ApartmentImages = ({ images }) => {
         <img className={styles.rightTopImg} src={images[2]} />
         <img src={images[3]} />
         <img className={styles.rightBottomImg} src={images[4]} />
-        <Button
-          className={styles.showAllButton}
-          onClick={() => setShowModal(true)}>
+        <Button className={styles.showAllButton} onClick={openModal}>
           <div className={styles.showAllButtonImages}>
             <FontAwesomeIcon icon="ellipsis-vertical" size="sm" />
             <FontAwesomeIcon icon="ellipsis-vertical" size="sm" />
@@ -48,12 +28,9 @@ const ApartmentImages = ({ images }) => {
           Показать все фото
         </Button>
       </div>
-      <Modal
-        children={
-          <ModalContent images={images} onClose={() => setShowModal(false)} />
-        }
-        inProp={showModal}
-      />
+      <Modal inProp={isOpen} showOverlay={false}>
+        <ImagesModalContent images={images} onClose={closeModal} />
+      </Modal>
     </>
   );
 };
