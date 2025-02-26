@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "@headlessui/react";
+import { useParams } from "react-router-dom";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
+import { useSelector, useDispatch } from "react-redux";
+import { addOrder } from "../../../../features/order/orderSlice";
 
 import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPriceWithCurrency";
 import { DATE_FORMAT } from "../../../../const/dates";
@@ -12,6 +15,11 @@ const CLOSEST_DAYS = 5;
 
 const BookingPannel = ({ price, orders }) => {
   const { RangePicker } = DatePicker;
+
+  const order = useSelector((state) => state.order);
+  const dispatch = useDispatch();
+
+  const params = useParams();
 
   const getDefaultValue = () => {
     let startDate = dayjs();
@@ -62,6 +70,12 @@ const BookingPannel = ({ price, orders }) => {
     });
   };
 
+  const [term, setTerm] = useState(defaultValue);
+
+  const getTerm = (arr) => {
+    setTerm(arr);
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -76,11 +90,15 @@ const BookingPannel = ({ price, orders }) => {
           disabledDate={disabledDate}
           minDate={dayjs()}
           maxDate={dayjs().add(1, "year")}
-          onChange={getDaysNumber}
+          onChange={(dateString) => (getDaysNumber(), getTerm(dateString))}
           defaultValue={getDefaultValue()}
         />
       </div>
-      <Button className={styles.bookingBtn}>Забронировать</Button>
+      <Button
+        className={styles.bookingBtn}
+        onClick={() => dispatch(addOrder({ id: params.id, term: term }))}>
+        Забронировать
+      </Button>
       <div className={styles.subtitle}>Пока вы ни за что не платите</div>
       <div className={styles.price}>
         <div className={styles.underlined}>
