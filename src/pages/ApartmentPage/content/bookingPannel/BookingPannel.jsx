@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
 import { useSelector, useDispatch } from "react-redux";
-import { addOrder } from "../../../../features/order/orderSlice";
+import { addOrder, openCart } from "../../../../features/order/orderSlice";
 
 import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPriceWithCurrency";
 import { DATE_FORMAT } from "../../../../const/dates";
@@ -96,7 +96,20 @@ const BookingPannel = ({ price, orders }) => {
       </div>
       <Button
         className={styles.bookingBtn}
-        onClick={() => dispatch(addOrder({ id: params.id, term: term }))}>
+        onClick={() => {
+          dispatch(
+            addOrder({
+              id: params.id,
+              term: term,
+              length: daysNumber,
+              price: getPriceWithCurrency(
+                Math.round(daysNumber * Number(price.amount) * 1.16),
+                price.currency
+              ),
+            })
+          );
+          dispatch(openCart());
+        }}>
         Забронировать
       </Button>
       <div className={styles.subtitle}>Пока вы ни за что не платите</div>

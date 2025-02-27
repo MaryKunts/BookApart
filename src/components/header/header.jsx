@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,44 +8,66 @@ import {
   faGlobe,
   faMoneyBill,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
 
+import Cart from "./cart/cart";
 import styles from "./header.module.scss";
+import { closeCart, openCart } from "../../features/order/orderSlice";
 
 const Header = () => {
+  const order = useSelector((state) => state.order);
+  const dispatch = useDispatch();
+
+  const handleOpen = () => {
+    if (!order.isOpen) {
+      dispatch(openCart());
+    } else dispatch(closeCart());
+  };
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.iconWrapper}>
-        <Button className={styles.iconButton}>
-          <FontAwesomeIcon
-            icon={faHouseChimney}
-            size="2xl"
-            style={{ color: "#7c60d2" }}
-          />
-          <div className={styles.iconButtonTitle}>BookApart</div>
-        </Button>
-      </div>
-      <div className={styles.settingsWrapper}>
-        <Button className={styles.rentOutButton}>
-          <FontAwesomeIcon
-            icon={faMoneyBill}
-            className={styles.icon}
-            size="2xl"
-          />
-        </Button>
-        <Button className={styles.rentOutButtonLong}>
-          Сдать жильё на BookApart
-        </Button>
+    <>
+      <div className={styles.wrapper}>
+        <div className={styles.iconWrapper}>
+          <Button className={styles.iconButton}>
+            <FontAwesomeIcon
+              icon={faHouseChimney}
+              size="2xl"
+              style={{ color: "#7c60d2" }}
+            />
+            <div className={styles.iconButtonTitle}>BookApart</div>
+          </Button>
+        </div>
+        <div className={styles.settingsWrapper}>
+          <Button className={styles.rentOutButton}>
+            <FontAwesomeIcon
+              icon={faMoneyBill}
+              className={styles.icon}
+              size="2xl"
+            />
+          </Button>
+          <Button className={styles.rentOutButtonLong}>
+            Сдать жильё на BookApart
+          </Button>
 
-        <Button className={styles.languageButton}>
-          <FontAwesomeIcon icon={faGlobe} size="xl" />
-        </Button>
+          <Button className={styles.languageButton}>
+            <FontAwesomeIcon icon={faGlobe} size="xl" />
+          </Button>
 
-        <Button className={styles.profileButton}>
-          <FontAwesomeIcon icon={faBars} size="lg" />
-          <FontAwesomeIcon icon={faUser} size="lg" />
-        </Button>
+          <Button className={styles.profileButton} onClick={handleOpen}>
+            <FontAwesomeIcon icon={faBars} size="lg" />
+            <FontAwesomeIcon icon={faUser} size="lg" />
+          </Button>
+          {order.isOpen ? (
+            <Cart
+              id={order.id}
+              term={order.term}
+              length={order.length}
+              price={order.price}
+            />
+          ) : null}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

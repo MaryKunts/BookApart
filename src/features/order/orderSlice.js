@@ -3,6 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   id: "",
   term: "",
+  price: "",
+  length: "",
+  isOpen: false,
 };
 
 export const orderSlice = createSlice({
@@ -12,13 +15,24 @@ export const orderSlice = createSlice({
     addOrder: (state, action) => {
       state.id = action.payload.id;
       state.term = action.payload.term;
+      state.length = action.payload.length;
+      state.price = action.payload.price;
     },
     deleteOrder: (state) => {
       state.id = "";
       state.term = "";
+      state.price = "";
+      state.length = "";
+    },
+    openCart: (state) => {
+      state.isOpen = true;
+    },
+    closeCart: (state) => {
+      state.isOpen = false;
     },
   },
 });
 
-export const { addOrder, deleteOrder } = orderSlice.actions;
+export const { addOrder, deleteOrder, openCart, closeCart } =
+  orderSlice.actions;
 export default orderSlice.reducer;
