@@ -2,70 +2,63 @@
 @use "../../../styles/font.scss";
 @use "../../../styles/spacing.scss";
 
-.wrapper {
-  font-family: font.$font-family;
-  position: absolute;
+.title {
+  font-weight: font.$font-weight-bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
   background-color: colors.$white;
-  z-index: 200;
-  width: 300px;
-  height: 300px;
-  top: 70px;
-  right: 0;
-  border-radius: spacing.$border-radius-20;
-  box-shadow: 2px 0px 6px 0px colors.$mortar-grey;
-  padding: spacing.$indent-20;
+  top: 0;
+  width: 100%;
+  height: 50px;
+}
 
-  .title {
+.container {
+  display: flex;
+  margin-top: spacing.$indent-12;
+  padding-bottom: spacing.$indent-12;
+  gap: spacing.$indent-8;
+  border-bottom: 1px solid colors.$mortar-grey;
+}
+
+.image {
+  width: 150px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$indent-8;
+  font-size: font.$font-size-s;
+
+  .description-title {
+    color: colors.$shisha-coal;
     font-weight: font.$font-weight-bold;
-    text-align: center;
   }
 
-  .container {
-    display: flex;
-    margin-top: spacing.$indent-20;
-    padding-bottom: spacing.$indent-12;
-    gap: spacing.$indent-8;
-    border-bottom: 1px solid colors.$mortar-grey;
-  }
-
-  .image {
-    width: 150px;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  .description {
-    display: flex;
-    flex-direction: column;
-    gap: spacing.$indent-8;
-    font-size: font.$font-size-s;
-
-    .description-title {
-      color: colors.$shisha-coal;
-      font-weight: font.$font-weight-bold;
-    }
-
-    .description-date {
-      color: colors.$mortar-grey;
-      font-weight: font.$font-weight-light;
-      font-size: font.$font-size-xs;
-    }
-
-    .description-nights {
-      color: colors.$shisha-coal;
-      font-weight: font.$font-weight-light;
-    }
-
-    .description-price {
-      font-weight: font.$font-weight-bold;
-    }
-  }
-
-  .empty {
-    text-align: center;
-    margin: spacing.$indent-80 0;
+  .description-date {
     color: colors.$mortar-grey;
+    font-weight: font.$font-weight-light;
+    font-size: font.$font-size-xs;
   }
+
+  .description-nights {
+    color: colors.$shisha-coal;
+    font-weight: font.$font-weight-light;
+  }
+
+  .description-price {
+    font-weight: font.$font-weight-bold;
+  }
+}
+
+.empty {
+  text-align: center;
+  margin: spacing.$indent-80 0;
+  color: colors.$mortar-grey;
 }

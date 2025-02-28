@@ -3,8 +3,9 @@ import { Button } from "@headlessui/react";
 import { useParams } from "react-router-dom";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
-import { useSelector, useDispatch } from "react-redux";
-import { addOrder, openCart } from "../../../../features/order/orderSlice";
+import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { addOrder, openCart } from "../../../../features/cart/cartSlice";
 
 import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPriceWithCurrency";
 import { DATE_FORMAT } from "../../../../const/dates";
@@ -16,7 +17,6 @@ const CLOSEST_DAYS = 5;
 const BookingPannel = ({ price, orders }) => {
   const { RangePicker } = DatePicker;
 
-  const order = useSelector((state) => state.order);
   const dispatch = useDispatch();
 
   const params = useParams();
@@ -99,7 +99,8 @@ const BookingPannel = ({ price, orders }) => {
         onClick={() => {
           dispatch(
             addOrder({
-              id: params.id,
+              id: uuidv4(),
+              apartmentId: params.id,
               term: term,
               length: daysNumber,
               price: getPriceWithCurrency(

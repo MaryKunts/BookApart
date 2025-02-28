@@ -11,15 +11,18 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 import Cart from "./cart/cart";
+import Dropdown from "../dropdown/dropdown";
 import styles from "./header.module.scss";
-import { closeCart, openCart } from "../../features/order/orderSlice";
+import { closeCart, openCart } from "../../features/cart/cartSlice";
 
 const Header = () => {
-  const order = useSelector((state) => state.order);
+  const isOpen = useSelector((state) => state.cart.isOpen);
+  const orders = useSelector((state) => state.cart.orders);
   const dispatch = useDispatch();
+  console.log(orders);
 
   const handleOpen = () => {
-    if (!order.isOpen) {
+    if (!isOpen) {
       dispatch(openCart());
     } else dispatch(closeCart());
   };
@@ -57,14 +60,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faBars} size="lg" />
             <FontAwesomeIcon icon={faUser} size="lg" />
           </Button>
-          {order.isOpen ? (
-            <Cart
-              id={order.id}
-              term={order.term}
-              length={order.length}
-              price={order.price}
-            />
-          ) : null}
+          {isOpen ? <Dropdown children={<Cart orders={orders} />} /> : null}
         </div>
       </div>
     </>
