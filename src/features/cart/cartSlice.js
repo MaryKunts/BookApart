@@ -22,7 +22,8 @@ export const cartSlice = createSlice({
       const index = state.orders.findIndex(
         (item) => item.id === action.payload.id
       );
-      state.orders = state.orders.slice(index, 1);
+      const newOrders = state.orders.toSpliced(index, 1);
+      state.orders = newOrders;
     },
     openCart: (state) => {
       state.isOpen = true;

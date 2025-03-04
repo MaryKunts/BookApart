@@ -116,21 +116,3 @@
     }
   }
 }
-
-.enter {
-  transform: translateY(100%);
-}
-
-.enter-active {
-  transform: translateY(0);
-  transition: transform 300ms ease;
-}
-
-.exit {
-  transform: translateY(0);
-  transition: transform 300ms ease;
-}
-
-.exit-active {
-  transform: translateY(100%);
-}

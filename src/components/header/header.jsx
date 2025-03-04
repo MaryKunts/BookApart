@@ -10,21 +10,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 
-import Cart from "./cart/cart";
-import Dropdown from "../dropdown/dropdown";
-import styles from "./header.module.scss";
+import Cart from "./cart/Cart";
+import Dropdown from "../dropdown/Dropdown";
+import styles from "./Header.module.scss";
 import { closeCart, openCart } from "../../features/cart/cartSlice";
 
 const Header = () => {
   const isOpen = useSelector((state) => state.cart.isOpen);
   const orders = useSelector((state) => state.cart.orders);
   const dispatch = useDispatch();
-  console.log(orders);
 
-  const handleOpen = () => {
-    if (!isOpen) {
-      dispatch(openCart());
-    } else dispatch(closeCart());
+  const handleOpen = (state) => {
+    if (state) {
+      dispatch(closeCart());
+    } else dispatch(openCart());
   };
 
   return (
@@ -55,12 +54,17 @@ const Header = () => {
           <Button className={styles.languageButton}>
             <FontAwesomeIcon icon={faGlobe} size="xl" />
           </Button>
-
-          <Button className={styles.profileButton} onClick={handleOpen}>
-            <FontAwesomeIcon icon={faBars} size="lg" />
-            <FontAwesomeIcon icon={faUser} size="lg" />
-          </Button>
-          {isOpen ? <Dropdown children={<Cart orders={orders} />} /> : null}
+          <Dropdown
+            forcedOpen={isOpen}
+            onStateChange={handleOpen}
+            trigger={
+              <Button className={styles.profileButton}>
+                <FontAwesomeIcon icon={faBars} size="lg" />
+                <FontAwesomeIcon icon={faUser} size="lg" />
+              </Button>
+            }>
+            <Cart orders={orders} />
+          </Dropdown>
         </div>
       </div>
     </>

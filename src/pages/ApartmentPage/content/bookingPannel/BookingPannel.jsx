@@ -76,6 +76,22 @@ const BookingPannel = ({ price, orders }) => {
     setTerm(arr);
   };
 
+  const handleMakeOrder = () => {
+    dispatch(
+      addOrder({
+        id: uuidv4(),
+        apartmentId: params.id,
+        term: term.map((item) => dayjs(item).format(DATE_FORMAT)),
+        length: daysNumber,
+        price: getPriceWithCurrency(
+          Math.round(daysNumber * Number(price.amount) * 1.16),
+          price.currency
+        ),
+      })
+    );
+    dispatch(openCart());
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -94,23 +110,7 @@ const BookingPannel = ({ price, orders }) => {
           defaultValue={getDefaultValue()}
         />
       </div>
-      <Button
-        className={styles.bookingBtn}
-        onClick={() => {
-          dispatch(
-            addOrder({
-              id: uuidv4(),
-              apartmentId: params.id,
-              term: term,
-              length: daysNumber,
-              price: getPriceWithCurrency(
-                Math.round(daysNumber * Number(price.amount) * 1.16),
-                price.currency
-              ),
-            })
-          );
-          dispatch(openCart());
-        }}>
+      <Button className={styles.bookingBtn} onClick={handleMakeOrder}>
         Забронировать
       </Button>
       <div className={styles.subtitle}>Пока вы ни за что не платите</div>
