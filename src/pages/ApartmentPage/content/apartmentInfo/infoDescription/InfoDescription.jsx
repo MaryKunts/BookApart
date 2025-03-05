@@ -18,7 +18,7 @@ const InfoDescription = ({ description }) => {
             Показать еще
             <FontAwesomeIcon icon="chevron-right" className={styles.icon} />
           </Button>
-          <Modal inProp={isOpen} showOverlay={true}>
+          <Modal inProp={isOpen} showOverlay={true} closeModal={closeModal}>
             <div className={styles.modalWrapper}>
               <div className={styles.modalHeader}>
                 <Button onClick={closeModal} className={styles.closeButton}>

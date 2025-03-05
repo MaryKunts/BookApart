@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "@headlessui/react";
+import { useParams } from "react-router-dom";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
+import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { addOrder, openCart } from "../../../../features/cart/cartSlice";
 
 import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPriceWithCurrency";
 import { DATE_FORMAT } from "../../../../const/dates";
@@ -12,6 +16,10 @@ const CLOSEST_DAYS = 5;
 
 const BookingPannel = ({ price, orders }) => {
   const { RangePicker } = DatePicker;
+
+  const dispatch = useDispatch();
+
+  const params = useParams();
 
   const getDefaultValue = () => {
     let startDate = dayjs();
@@ -62,6 +70,28 @@ const BookingPannel = ({ price, orders }) => {
     });
   };
 
+  const [term, setTerm] = useState(defaultValue);
+
+  const getTerm = (arr) => {
+    setTerm(arr);
+  };
+
+  const handleMakeOrder = () => {
+    dispatch(
+      addOrder({
+        id: uuidv4(),
+        apartmentId: params.id,
+        term: term.map((item) => dayjs(item).format(DATE_FORMAT)),
+        length: daysNumber,
+        price: getPriceWithCurrency(
+          Math.round(daysNumber * Number(price.amount) * 1.16),
+          price.currency
+        ),
+      })
+    );
+    dispatch(openCart());
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
@@ -76,11 +106,13 @@ const BookingPannel = ({ price, orders }) => {
           disabledDate={disabledDate}
           minDate={dayjs()}
           maxDate={dayjs().add(1, "year")}
-          onChange={getDaysNumber}
+          onChange={(dateString) => (getDaysNumber(), getTerm(dateString))}
           defaultValue={getDefaultValue()}
         />
       </div>
-      <Button className={styles.bookingBtn}>Забронировать</Button>
+      <Button className={styles.bookingBtn} onClick={handleMakeOrder}>
+        Забронировать
+      </Button>
       <div className={styles.subtitle}>Пока вы ни за что не платите</div>
       <div className={styles.price}>
         <div className={styles.underlined}>

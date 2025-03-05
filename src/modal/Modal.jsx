@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { createPortal } from "react-dom";
 
+import { useClickOutside } from "../hooks/useClickOutside/useClickOutside";
 import styles from "./Modal.module.scss";
 
-const Modal = ({ children, inProp, showOverlay }) => {
+const Modal = ({ children, inProp, showOverlay, closeModal }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +17,8 @@ const Modal = ({ children, inProp, showOverlay }) => {
       document.body.classList.remove("scroll-hidden");
     };
   }, [inProp]);
+
+  closeModal && useClickOutside(modalRef, closeModal);
 
   return createPortal(
     <CSSTransition

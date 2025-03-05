@@ -4,6 +4,7 @@ import UsersChoiceBar from "../usersChoiceBar/UsersChoiceBar";
 import OwnerInfo from "./ownerInfo/OwnerInfo";
 import InfoAdvantages from "./infoAdvantages/InfoAdvantages";
 import InfoDescription from "./infoDescription/InfoDescription";
+import getTitle from "../../../../utils/getTitle/getTitle";
 
 import styles from "./ApartmentInfo.module.scss";
 
@@ -24,7 +25,7 @@ const ApartmentInfo = ({
   const mapApartmentLabel = { usersChoice: <UsersChoiceBar rating={rating} /> };
   return (
     <div className={styles.wrapper}>
-      <div className={styles.infoTitle}>{`${type}, ${city}, ${country}`}</div>
+      <div className={styles.infoTitle}>{getTitle(type, city, country)}</div>
       <div className={styles.info}>
         {`${maxGuest} гостей ${String.fromCharCode(
           8901

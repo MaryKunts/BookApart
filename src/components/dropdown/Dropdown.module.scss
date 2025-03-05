@@ -1,0 +1,23 @@
+@use "../../styles/colors.scss";
+@use "../../styles/font.scss";
+@use "../../styles/spacing.scss";
+
+.wrapper {
+  position: relative;
+}
+
+.dropdown-content {
+  font-family: font.$font-family;
+  position: absolute;
+  background-color: colors.$white;
+  z-index: 200;
+  width: 300px;
+  height: 310px;
+  top: calc(100% + spacing.$indent-12);
+  right: 0;
+  border-radius: spacing.$border-radius-20;
+  box-shadow: 2px 0px 6px 0px colors.$mortar-grey;
+  padding: spacing.$indent-20;
+  padding-top: 0;
+  overflow: auto;
+}

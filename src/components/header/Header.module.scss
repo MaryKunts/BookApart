@@ -62,6 +62,9 @@
       height: 40px;
       padding: spacing.$indent-12;
       border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border-radius: spacing.$border-radius-20;
       color: colors.$shisha-coal;
       transition: all 0.2s ease-in;
