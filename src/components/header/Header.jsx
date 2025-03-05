@@ -22,8 +22,8 @@ const Header = () => {
 
   const handleOpen = (state) => {
     if (state) {
-      dispatch(closeCart());
-    } else dispatch(openCart());
+      dispatch(openCart());
+    } else dispatch(closeCart());
   };
 
   return (

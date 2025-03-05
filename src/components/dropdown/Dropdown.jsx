@@ -9,27 +9,25 @@ const Dropdown = ({ children, trigger, forcedOpen = false, onStateChange }) => {
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    if (forcedOpen) {
-      setIsOpen(true);
-    } else setIsOpen(false);
+    setIsOpen(forcedOpen);
   }, [forcedOpen]);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
-    onStateChange && onStateChange(isOpen);
+    onStateChange && onStateChange(!isOpen);
   };
 
   const handleClose = () => {
     if (isOpen) {
       setIsOpen(false);
-      onStateChange && onStateChange(isOpen);
+      onStateChange && onStateChange(false);
     }
   };
 
   useClickOutside(dropdownRef, handleClose);
 
   return (
-    <div className={styles.wrapper} ref={dropdownRef}>
+    <div ref={dropdownRef} className={styles.wrapper}>
       <div onClick={handleClick}>{trigger}</div>
       {isOpen ? <div className={styles.dropdownContent}>{children}</div> : null}
     </div>
