@@ -1,0 +1,71 @@
+@use "../../styles/colors.scss";
+@use "../../styles/font.scss";
+@use "../../styles/spacing.scss";
+
+.overlay {
+  background-color: colors.$white-smoke;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.container {
+  font-family: font.$font-family;
+  position: absolute;
+  width: 500px;
+  z-index: 20;
+  top: spacing.$indent-120;
+  left: calc((100vw - 500px) / 2);
+  padding: spacing.$indent-20 spacing.$indent-40;
+  background-color: colors.$white;
+  box-shadow: 1px 1px 11px 0px colors.$mortar-grey;
+  border-radius: spacing.$border-radius-10;
+
+  .header {
+    display: flex;
+    padding: spacing.$indent-20 0;
+    align-items: center;
+    border-bottom: 1px solid colors.$diamond-stud;
+    gap: spacing.$indent-80;
+
+    .header-button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: spacing.$border-radius-20;
+      color: colors.$shisha-coal;
+      transition: all 0.2s ease-in;
+
+      &:hover {
+        background-color: colors.$white-smoke;
+      }
+    }
+
+    .header-title {
+      font-weight: font.$font-weight-bold;
+    }
+  }
+
+  .title {
+    padding: spacing.$indent-20 0;
+    padding-bottom: spacing.$indent-12;
+    font-weight: font.$font-weight-medium;
+    font-size: font.$font-size;
+    justify-content: space-between;
+  }
+
+  .link {
+    display: block;
+    font-size: font.$font-size-s;
+    color: colors.$black;
+    font-weight: font.$font-weight-light;
+    text-align: center;
+    padding: spacing.$indent-20 0;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

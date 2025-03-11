@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -30,15 +31,18 @@ const Header = () => {
     <>
       <div className={styles.wrapper}>
         <div className={styles.iconWrapper}>
-          <Button className={styles.iconButton}>
-            <FontAwesomeIcon
-              icon={faHouseChimney}
-              size="2xl"
-              style={{ color: "#7c60d2" }}
-            />
-            <div className={styles.iconButtonTitle}>BookApart</div>
-          </Button>
+          <Link to="/">
+            <Button className={styles.iconButton}>
+              <FontAwesomeIcon
+                icon={faHouseChimney}
+                size="2xl"
+                style={{ color: "#7c60d2" }}
+              />
+              <div className={styles.iconButtonTitle}>BookApart</div>
+            </Button>
+          </Link>
         </div>
+
         <div className={styles.settingsWrapper}>
           <Button className={styles.rentOutButton}>
             <FontAwesomeIcon

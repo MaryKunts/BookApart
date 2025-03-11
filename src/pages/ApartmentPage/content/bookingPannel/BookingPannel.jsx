@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
 import { addOrder, openCart } from "../../../../features/cart/cartSlice";
+import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
 
 import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPriceWithCurrency";
 import { DATE_FORMAT } from "../../../../const/dates";
@@ -110,9 +111,11 @@ const BookingPannel = ({ price, orders }) => {
           defaultValue={getDefaultValue()}
         />
       </div>
-      <Button className={styles.bookingBtn} onClick={handleMakeOrder}>
-        Забронировать
-      </Button>
+      <ConfirmButton
+        className={styles.bookingBtn}
+        content="Забронировать"
+        onClick={handleMakeOrder}
+      />
       <div className={styles.subtitle}>Пока вы ни за что не платите</div>
       <div className={styles.price}>
         <div className={styles.underlined}>
