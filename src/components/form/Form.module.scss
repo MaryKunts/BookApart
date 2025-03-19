@@ -1,0 +1,9 @@
+@use "../../styles/spacing.scss";
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: spacing.$indent-20 0;
+  padding-top: 0;
+}

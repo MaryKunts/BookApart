@@ -1,11 +1,11 @@
 @use "../../styles/colors.scss";
 @use "../../styles/spacing.scss";
+
 .confirm-button {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
   margin-top: spacing.$indent-20;
   height: 40px;
   padding: spacing.$indent-12;

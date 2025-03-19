@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import LoginForm from "./content/LoginForm/LoginForm";
-import styles from "./LoginPage.module.scss";
+import styles from "./SignupPage.module.scss";
 import "../../styles/icons";
+import SignupForm from "./content/signupForm/SignupForm";
 
-const LoginPage = () => {
+const SignupPage = () => {
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
@@ -17,16 +17,12 @@ const LoginPage = () => {
               <FontAwesomeIcon icon="fa-solid fa-arrow-left-long" />
             </Button>
           </Link>
-          <div className={styles.headerTitle}>Войдите в свой профиль</div>
+          <div className={styles.headerTitle}>Добро пожаловать в BookApart</div>
         </div>
-        <div className={styles.title}>Добро пожаловать в BookApart</div>
-        <LoginForm />
-        <Link className={styles.link} to="#">
-          Нет аккаунта? Вы можете зарегистрироваться здесь
-        </Link>
+        <SignupForm />
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignupPage;

@@ -3,10 +3,10 @@ import { Button } from "@headlessui/react";
 
 import styles from "./ConfirmButton.module.scss";
 
-const ConfirmButton = ({ content, onClick }) => {
+const ConfirmButton = ({ label, onClick }) => {
   return (
     <Button className={styles.confirmButton} type="submit" onClick={onClick}>
-      {content}
+      {label}
     </Button>
   );
 };

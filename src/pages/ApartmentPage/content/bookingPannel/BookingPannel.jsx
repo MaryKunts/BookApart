@@ -111,11 +111,7 @@ const BookingPannel = ({ price, orders }) => {
           defaultValue={getDefaultValue()}
         />
       </div>
-      <ConfirmButton
-        className={styles.bookingBtn}
-        content="Забронировать"
-        onClick={handleMakeOrder}
-      />
+      <ConfirmButton label="Забронировать" onClick={handleMakeOrder} />
       <div className={styles.subtitle}>Пока вы ни за что не платите</div>
       <div className={styles.price}>
         <div className={styles.underlined}>
