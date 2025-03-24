@@ -114,4 +114,27 @@
       }
     }
   }
+
+  .dropdown-wrapper {
+    padding: spacing.$indent-8 0;
+    border-bottom: 0.5px solid colors.$mortar-grey;
+
+    .dropdown-item {
+      font-size: font.$font-size-s;
+      font-weight: font.$font-weight-medium;
+      background-color: colors.$white;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: colors.$white-smoke;
+      }
+
+      a {
+        padding: spacing.$indent-12;
+        display: block;
+        color: colors.$shisha-coal;
+      }
+    }
+  }
 }

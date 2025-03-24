@@ -21,7 +21,7 @@ const LoginPage = () => {
         </div>
         <div className={styles.title}>Добро пожаловать в BookApart</div>
         <LoginForm />
-        <Link className={styles.link} to="#">
+        <Link className={styles.link} to="/signup">
           Нет аккаунта? Вы можете зарегистрироваться здесь
         </Link>
       </div>

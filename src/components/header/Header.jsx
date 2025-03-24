@@ -67,7 +67,15 @@ const Header = () => {
                 <FontAwesomeIcon icon={faUser} size="lg" />
               </Button>
             }>
-            <Cart orders={orders} />
+            {/* <Cart orders={orders} /> */}
+            <div className={styles.dropdownWrapper}>
+              <div className={styles.dropdownItem}>
+                <Link to="/signup">Зарегистрироваться</Link>
+              </div>
+              <div className={styles.dropdownItem}>
+                <Link to="/login">Войти</Link>
+              </div>
+            </div>
           </Dropdown>
         </div>
       </div>
