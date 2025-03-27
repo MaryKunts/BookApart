@@ -11,11 +11,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "../../context/AuthContext";
-
+import { ROUTES } from "../../routes/routes";
 import Cart from "./cart/Cart";
 import Dropdown from "../dropdown/Dropdown";
-import styles from "./Header.module.scss";
 import { closeCart, openCart } from "../../features/cart/cartSlice";
+import styles from "./Header.module.scss";
 
 const Header = () => {
   const isOpen = useSelector((state) => state.cart.isOpen);
@@ -40,7 +40,7 @@ const Header = () => {
     <>
       <div className={styles.wrapper}>
         <div className={styles.iconWrapper}>
-          <Link to="/">
+          <Link to={ROUTES.ROOT}>
             <Button className={styles.iconButton}>
               <FontAwesomeIcon
                 icon={faHouseChimney}
@@ -81,7 +81,9 @@ const Header = () => {
                 <div className={styles.dropdownWrapper}>
                   <div className={styles.dropdownUsername}>{user.username}</div>
                   <div className={styles.dropdownItem}>
-                    <Button onClick={logOut}>Выйти</Button>
+                    <Button onClick={logOut} className={styles.logoutButton}>
+                      Выйти
+                    </Button>
                   </div>
                 </div>
                 <Cart orders={orders} />
@@ -89,10 +91,14 @@ const Header = () => {
             ) : (
               <div className={styles.dropdownWrapper}>
                 <div className={styles.dropdownItem}>
-                  <Link to="/signup">Зарегистрироваться</Link>
+                  <Link to={ROUTES.SIGNUP_PAGE} className={styles.link}>
+                    Зарегистрироваться
+                  </Link>
                 </div>
                 <div className={styles.dropdownItem}>
-                  <Link to="/login">Войти</Link>
+                  <Link to={ROUTES.LOGIN_PAGE} className={styles.link}>
+                    Войти
+                  </Link>
                 </div>
               </div>
             )}

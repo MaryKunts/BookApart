@@ -80,9 +80,6 @@
     }
 
     .rent-out-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       @include breakpoints.md-breakpoint {
         display: none;
       }
@@ -103,8 +100,6 @@
 
     .profileButton {
       border: 1px solid colors.$mortar-grey;
-      display: flex;
-      align-items: center;
       width: fit-content;
       gap: spacing.$indent-20;
 
@@ -135,13 +130,13 @@
         background-color: colors.$white-smoke;
       }
 
-      a {
+      .link {
         padding: spacing.$indent-12;
         display: block;
         color: colors.$shisha-coal;
       }
 
-      button {
+      .logout-button {
         width: 100%;
         display: flex;
         justify-content: flex-start;

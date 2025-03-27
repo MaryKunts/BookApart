@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
       }
       throw new Error(res.message);
     } catch (err) {
+      setLoading(false);
       console.error(err);
     }
   };
@@ -43,6 +44,7 @@ const AuthProvider = ({ children }) => {
 
       await loginAction({ email, userPassword });
     } catch (err) {
+      setLoading(false);
       console.error(err);
     }
   };
@@ -68,6 +70,7 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
       }
     } catch (err) {
+      setLoading(false);
       console.error(err);
     }
   };

@@ -4,6 +4,7 @@ import { useAuth } from "../../../../context/AuthContext";
 import Form from "../../../../components/form/Form";
 import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
 import InputField from "../../../../components/inputs/inputField/inputField";
+import { ROUTES } from "../../../../routes/routes";
 
 const LoginForm = () => {
   const { loginAction, loading } = useAuth();
@@ -11,7 +12,8 @@ const LoginForm = () => {
 
   const handleSubmit = async ({ email, userPassword }) => {
     await loginAction({ email, userPassword });
-    navigate("/");
+
+    navigate(ROUTES.ROOT);
   };
 
   return (

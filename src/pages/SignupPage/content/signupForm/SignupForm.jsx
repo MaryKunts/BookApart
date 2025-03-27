@@ -5,6 +5,7 @@ import Form from "../../../../components/form/Form";
 import InputField from "../../../../components/inputs/inputField/inputField";
 import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
 import ConfirmInputField from "../../../../components/inputs/confirmInputField/ConfirmInputField";
+import { ROUTES } from "../../../../routes/routes";
 
 const SignupForm = () => {
   const { signupAction, loading } = useAuth();
@@ -12,7 +13,7 @@ const SignupForm = () => {
 
   const handleSubmit = async ({ username, email, userPassword }) => {
     await signupAction({ username, email, userPassword });
-    navigate("/");
+    navigate(ROUTES.ROOT);
   };
 
   return (
