@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Button } from "@headlessui/react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
-import { addOrder, openCart } from "../../../../features/cart/cartSlice";
 
+import { addOrder, openCart } from "../../../../features/cart/cartSlice";
+import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
+import { useAuth } from "../../../../context/AuthContext";
 import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPriceWithCurrency";
 import { DATE_FORMAT } from "../../../../const/dates";
-
+import { ROUTES } from "../../../../routes/routes";
 import styles from "./BookingPannel.module.scss";
 
 const CLOSEST_DAYS = 5;
@@ -20,6 +22,8 @@ const BookingPannel = ({ price, orders }) => {
   const dispatch = useDispatch();
 
   const params = useParams();
+
+  const { user } = useAuth();
 
   const getDefaultValue = () => {
     let startDate = dayjs();
@@ -95,7 +99,10 @@ const BookingPannel = ({ price, orders }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        <span>{getPriceWithCurrency(price.amount, price.currency)}</span> ночь
+        <span className={styles.bold}>
+          {getPriceWithCurrency(price.amount, price.currency)}
+        </span>{" "}
+        ночь
       </div>
       <div className={styles.chooseWrapper}>
         <RangePicker
@@ -110,10 +117,26 @@ const BookingPannel = ({ price, orders }) => {
           defaultValue={getDefaultValue()}
         />
       </div>
-      <Button className={styles.bookingBtn} onClick={handleMakeOrder}>
-        Забронировать
-      </Button>
-      <div className={styles.subtitle}>Пока вы ни за что не платите</div>
+      <ConfirmButton
+        label="Забронировать"
+        onClick={handleMakeOrder}
+        disabled={!user}
+      />
+      {user ? (
+        <div className={styles.subtitle}>Пока вы ни за что не платите</div>
+      ) : (
+        <div className={styles.subtitle}>
+          Чтобы оформить заказ <br />
+          <Link to={ROUTES.LOGIN_PAGE} className={styles.link}>
+            войдите
+          </Link>
+          или
+          <Link to={ROUTES.SIGNUP_PAGE} className={styles.link}>
+            зарегистрируйтесь
+          </Link>
+        </div>
+      )}
+
       <div className={styles.price}>
         <div className={styles.underlined}>
           {getPriceWithCurrency(price.amount, price.currency)}

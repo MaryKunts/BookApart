@@ -6,18 +6,18 @@
   padding: spacing.$indent-20 0px;
   border-bottom: 1px solid colors.$mortar-grey;
 
-  &Item {
+  .infoAdvtgs-item {
     padding: spacing.$indent-20 0;
     display: flex;
     align-items: center;
     gap: spacing.$indent-20;
   }
 
-  &Title {
+  .infoAdvtgs-title {
     font-weight: font.$font-weight-bold;
   }
 
-  &Subtitle {
+  .infoAdvtgs-subtitle {
     padding-top: spacing.$indent-12;
     color: colors.$mortar-grey;
     font-weight: font.$font-weight-light;

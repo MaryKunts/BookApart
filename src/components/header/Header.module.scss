@@ -80,9 +80,6 @@
     }
 
     .rent-out-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       @include breakpoints.md-breakpoint {
         display: none;
       }
@@ -103,8 +100,6 @@
 
     .profileButton {
       border: 1px solid colors.$mortar-grey;
-      display: flex;
-      align-items: center;
       width: fit-content;
       gap: spacing.$indent-20;
 
@@ -112,6 +107,47 @@
         background-color: none;
         box-shadow: 2px 2px 4px 2px colors.$mortar-grey;
       }
+
+      &:focus-within {
+        background-color: none;
+        box-shadow: 2px 2px 4px 2px colors.$mortar-grey;
+      }
+    }
+  }
+
+  .dropdown-wrapper {
+    padding: spacing.$indent-8 0;
+    border-bottom: 0.5px solid colors.$mortar-grey;
+
+    .dropdown-item {
+      font-size: font.$font-size-s;
+      font-weight: font.$font-weight-medium;
+      background-color: colors.$white;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: colors.$white-smoke;
+      }
+
+      .link {
+        padding: spacing.$indent-12;
+        display: block;
+        color: colors.$shisha-coal;
+      }
+
+      .logout-button {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+
+    .dropdown-username {
+      font-weight: font.$font-weight-medium;
+      text-align: center;
+      font-size: font.$font-size;
+      color: colors.$shisha-coal;
     }
   }
 }

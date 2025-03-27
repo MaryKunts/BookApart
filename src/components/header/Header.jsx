@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,16 +10,19 @@ import {
   faMoneyBill,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useAuth } from "../../context/AuthContext";
+import { ROUTES } from "../../routes/routes";
 import Cart from "./cart/Cart";
 import Dropdown from "../dropdown/Dropdown";
-import styles from "./Header.module.scss";
 import { closeCart, openCart } from "../../features/cart/cartSlice";
+import styles from "./Header.module.scss";
 
 const Header = () => {
   const isOpen = useSelector((state) => state.cart.isOpen);
   const orders = useSelector((state) => state.cart.orders);
   const dispatch = useDispatch();
+
+  const { user, logOut } = useAuth();
 
   const handleOpen = (state) => {
     if (state) {
@@ -26,19 +30,28 @@ const Header = () => {
     } else dispatch(closeCart());
   };
 
+  useEffect(() => {
+    return () => {
+      dispatch(closeCart());
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.wrapper}>
         <div className={styles.iconWrapper}>
-          <Button className={styles.iconButton}>
-            <FontAwesomeIcon
-              icon={faHouseChimney}
-              size="2xl"
-              style={{ color: "#7c60d2" }}
-            />
-            <div className={styles.iconButtonTitle}>BookApart</div>
-          </Button>
+          <Link to={ROUTES.ROOT}>
+            <Button className={styles.iconButton}>
+              <FontAwesomeIcon
+                icon={faHouseChimney}
+                size="2xl"
+                style={{ color: "#7c60d2" }}
+              />
+              <div className={styles.iconButtonTitle}>BookApart</div>
+            </Button>
+          </Link>
         </div>
+
         <div className={styles.settingsWrapper}>
           <Button className={styles.rentOutButton}>
             <FontAwesomeIcon
@@ -63,7 +76,32 @@ const Header = () => {
                 <FontAwesomeIcon icon={faUser} size="lg" />
               </Button>
             }>
-            <Cart orders={orders} />
+            {user?.username ? (
+              <>
+                <div className={styles.dropdownWrapper}>
+                  <div className={styles.dropdownUsername}>{user.username}</div>
+                  <div className={styles.dropdownItem}>
+                    <Button onClick={logOut} className={styles.logoutButton}>
+                      Выйти
+                    </Button>
+                  </div>
+                </div>
+                <Cart orders={orders} />
+              </>
+            ) : (
+              <div className={styles.dropdownWrapper}>
+                <div className={styles.dropdownItem}>
+                  <Link to={ROUTES.SIGNUP_PAGE} className={styles.link}>
+                    Зарегистрироваться
+                  </Link>
+                </div>
+                <div className={styles.dropdownItem}>
+                  <Link to={ROUTES.LOGIN_PAGE} className={styles.link}>
+                    Войти
+                  </Link>
+                </div>
+              </div>
+            )}
           </Dropdown>
         </div>
       </div>

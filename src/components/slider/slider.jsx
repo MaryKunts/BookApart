@@ -40,8 +40,8 @@ const PhotoSlider = (props) => {
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         }}>
-        {props.content.map((item) => (
-          <div className={styles.sliderItem}>
+        {props.content.map((item, index) => (
+          <div className={styles.sliderItem} key={index}>
             <img src={item} id={props.id} />
           </div>
         ))}
