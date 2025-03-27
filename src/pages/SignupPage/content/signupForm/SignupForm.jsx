@@ -1,15 +1,24 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../../context/AuthContext";
 import Form from "../../../../components/form/Form";
 import InputField from "../../../../components/inputs/inputField/inputField";
 import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
 import ConfirmInputField from "../../../../components/inputs/confirmInputField/ConfirmInputField";
 
 const SignupForm = () => {
+  const { signupAction, loading } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async ({ username, email, userPassword }) => {
+    await signupAction({ username, email, userPassword });
+    navigate("/");
+  };
+
   return (
-    <Form onSubmit={() => console.log("Success")}>
+    <Form onSubmit={handleSubmit}>
       <InputField
-        name="userName"
+        name="username"
         placeholder="Введите Ваше имя"
         rule="length"
       />
@@ -32,7 +41,7 @@ const SignupForm = () => {
         type="password"
         message="Пароли доджны совпадать!"
       />
-      <ConfirmButton label="Зарегистрироваться" />
+      <ConfirmButton label="Зарегистрироваться" loading={loading} />
     </Form>
   );
 };

@@ -112,6 +112,11 @@
         background-color: none;
         box-shadow: 2px 2px 4px 2px colors.$mortar-grey;
       }
+
+      &:focus-within {
+        background-color: none;
+        box-shadow: 2px 2px 4px 2px colors.$mortar-grey;
+      }
     }
   }
 
@@ -135,6 +140,19 @@
         display: block;
         color: colors.$shisha-coal;
       }
+
+      button {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+
+    .dropdown-username {
+      font-weight: font.$font-weight-medium;
+      text-align: center;
+      font-size: font.$font-size;
+      color: colors.$shisha-coal;
     }
   }
 }

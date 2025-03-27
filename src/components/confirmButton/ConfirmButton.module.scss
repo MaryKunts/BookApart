@@ -19,4 +19,8 @@
   &:hover {
     box-shadow: 0px 1px 9px 0px colors.$mortar-grey;
   }
+
+  &:disabled {
+    opacity: 0.6;
+  }
 }

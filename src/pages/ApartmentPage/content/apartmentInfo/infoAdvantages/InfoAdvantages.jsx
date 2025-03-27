@@ -9,7 +9,7 @@ const InfoAdvantages = ({ advantages }) => {
     <div className={styles.infoAdvtgs}>
       {advantages.map((item) => {
         return (
-          <div className={styles.infoAdvtgsItem}>
+          <div key={item.name} className={styles.infoAdvtgsItem}>
             <FontAwesomeIcon
               icon={item.icon}
               size="2xl"

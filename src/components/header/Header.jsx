@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +10,7 @@ import {
   faMoneyBill,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
+import { useAuth } from "../../context/AuthContext";
 
 import Cart from "./cart/Cart";
 import Dropdown from "../dropdown/Dropdown";
@@ -21,11 +22,19 @@ const Header = () => {
   const orders = useSelector((state) => state.cart.orders);
   const dispatch = useDispatch();
 
+  const { user, logOut } = useAuth();
+
   const handleOpen = (state) => {
     if (state) {
       dispatch(openCart());
     } else dispatch(closeCart());
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(closeCart());
+    };
+  }, []);
 
   return (
     <>
@@ -67,15 +76,26 @@ const Header = () => {
                 <FontAwesomeIcon icon={faUser} size="lg" />
               </Button>
             }>
-            {/* <Cart orders={orders} /> */}
-            <div className={styles.dropdownWrapper}>
-              <div className={styles.dropdownItem}>
-                <Link to="/signup">Зарегистрироваться</Link>
+            {user?.username ? (
+              <>
+                <div className={styles.dropdownWrapper}>
+                  <div className={styles.dropdownUsername}>{user.username}</div>
+                  <div className={styles.dropdownItem}>
+                    <Button onClick={logOut}>Выйти</Button>
+                  </div>
+                </div>
+                <Cart orders={orders} />
+              </>
+            ) : (
+              <div className={styles.dropdownWrapper}>
+                <div className={styles.dropdownItem}>
+                  <Link to="/signup">Зарегистрироваться</Link>
+                </div>
+                <div className={styles.dropdownItem}>
+                  <Link to="/login">Войти</Link>
+                </div>
               </div>
-              <div className={styles.dropdownItem}>
-                <Link to="/login">Войти</Link>
-              </div>
-            </div>
+            )}
           </Dropdown>
         </div>
       </div>

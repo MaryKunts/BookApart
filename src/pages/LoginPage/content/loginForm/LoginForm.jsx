@@ -1,18 +1,23 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../../context/AuthContext";
 import Form from "../../../../components/form/Form";
 import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
 import InputField from "../../../../components/inputs/inputField/inputField";
 
 const LoginForm = () => {
-  const onSubmit = (data) => {
-    console.log(data);
+  const { loginAction, loading } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async ({ email, userPassword }) => {
+    await loginAction({ email, userPassword });
+    navigate("/");
   };
 
   return (
-    <Form onSubmit={(data) => onSubmit(data)}>
+    <Form onSubmit={handleSubmit}>
       <InputField
-        name="userEmail"
+        name="email"
         placeholder="Введите email"
         type="email"
         rule="email"
@@ -23,7 +28,7 @@ const LoginForm = () => {
         rule="required"
         type="password"
       />
-      <ConfirmButton label="Войти" />
+      <ConfirmButton label="Войти" loading={loading} />
     </Form>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@headlessui/react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
@@ -12,6 +12,7 @@ import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPric
 import { DATE_FORMAT } from "../../../../const/dates";
 
 import styles from "./BookingPannel.module.scss";
+import { useAuth } from "../../../../context/AuthContext";
 
 const CLOSEST_DAYS = 5;
 
@@ -21,6 +22,8 @@ const BookingPannel = ({ price, orders }) => {
   const dispatch = useDispatch();
 
   const params = useParams();
+
+  const { user } = useAuth();
 
   const getDefaultValue = () => {
     let startDate = dayjs();
@@ -111,8 +114,22 @@ const BookingPannel = ({ price, orders }) => {
           defaultValue={getDefaultValue()}
         />
       </div>
-      <ConfirmButton label="Забронировать" onClick={handleMakeOrder} />
-      <div className={styles.subtitle}>Пока вы ни за что не платите</div>
+      <ConfirmButton
+        label="Забронировать"
+        onClick={handleMakeOrder}
+        disabled={!user}
+      />
+      {user ? (
+        <div className={styles.subtitle}>Пока вы ни за что не платите</div>
+      ) : (
+        <div className={styles.subtitle}>
+          Чтобы оформить заказ
+          <Link to="/login"> войдите </Link>
+          или
+          <Link to="/signup"> зарегистрируйтесь </Link>
+        </div>
+      )}
+
       <div className={styles.price}>
         <div className={styles.underlined}>
           {getPriceWithCurrency(price.amount, price.currency)}
