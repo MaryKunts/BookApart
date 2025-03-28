@@ -12,7 +12,10 @@ export const cartSlice = createSlice({
     addOrder: (state, action) => {
       state.orders.push({
         id: action.payload.id,
-        apartmentId: action.payload.apartmentId,
+        images: action.payload.images,
+        type: action.payload.type,
+        city: action.payload.city,
+        country: action.payload.country,
         term: action.payload.term,
         price: action.payload.price,
         length: action.payload.length,

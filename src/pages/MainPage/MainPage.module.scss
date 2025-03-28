@@ -2,12 +2,20 @@
 @use "../../styles/spacing.scss";
 
 .container {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   max-width: 2520px;
   padding: 0 spacing.$indent-120;
+
   @include breakpoints.lg-breakpoint {
     padding: 0 spacing.$indent-80;
+  }
+
+  .spinner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
   }
 }

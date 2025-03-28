@@ -13,7 +13,7 @@ const LoginForm = () => {
   const handleSubmit = async ({ email, userPassword }) => {
     await loginAction({ email, userPassword });
 
-    navigate(ROUTES.ROOT);
+    navigate(-1);
   };
 
   return (

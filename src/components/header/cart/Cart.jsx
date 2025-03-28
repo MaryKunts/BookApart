@@ -13,17 +13,14 @@ const Cart = ({ orders }) => {
     <>
       <div className={styles.title}>Ваши заказы</div>
       {orders.map((item) => {
-        const apartment = accomodations.find(
-          (apart) => apart.id === Number(item.apartmentId)
-        );
         return (
           <div className={styles.container}>
             <div className={styles.image}>
-              <img src={apartment.images[0]} alt="" />
+              <img src={item.images[0]} alt="" />
             </div>
             <div className={styles.description}>
               <div className={styles.descriptionTitle}>
-                {getTitle(apartment.type, apartment.city, apartment.country)}
+                {getTitle(item.type, item.city, item.country)}
               </div>
               <div className={styles.descriptionDate}>
                 {`${item.term[0]} - ${item.term[1]}`}
