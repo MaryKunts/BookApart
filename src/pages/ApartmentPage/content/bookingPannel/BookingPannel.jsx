@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@headlessui/react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
@@ -16,12 +16,10 @@ import styles from "./BookingPannel.module.scss";
 
 const CLOSEST_DAYS = 5;
 
-const BookingPannel = ({ price, orders }) => {
+const BookingPannel = ({ apartment }) => {
   const { RangePicker } = DatePicker;
 
   const dispatch = useDispatch();
-
-  const params = useParams();
 
   const { user } = useAuth();
 
@@ -29,9 +27,9 @@ const BookingPannel = ({ price, orders }) => {
     let startDate = dayjs();
     let endDate = startDate.add(CLOSEST_DAYS, "days");
 
-    for (const element of orders) {
-      const orderStartDate = dayjs(element.term.start);
-      const orderEndDate = dayjs(element.term.end);
+    for (const element of apartment.orders) {
+      const orderStartDate = dayjs.unix(element.terms.start.seconds);
+      const orderEndDate = dayjs.unix(element.terms.end.seconds);
 
       if (
         endDate.isBefore(orderStartDate) &&
@@ -59,10 +57,10 @@ const BookingPannel = ({ price, orders }) => {
     setDaysNumber(value[1].diff(value[0], "day"));
   };
 
-  const booked = orders.map((item) => {
+  const booked = apartment.orders.map((item) => {
     return {
-      start: dayjs(item.term.start),
-      end: dayjs(item.term.end),
+      start: dayjs.unix(item.terms.start.seconds),
+      end: dayjs.unix(item.terms.end.seconds),
     };
   });
 
@@ -84,12 +82,15 @@ const BookingPannel = ({ price, orders }) => {
     dispatch(
       addOrder({
         id: uuidv4(),
-        apartmentId: params.id,
+        images: apartment.images,
+        type: apartment.type,
+        city: apartment.city,
+        country: apartment.country,
         term: term.map((item) => dayjs(item).format(DATE_FORMAT)),
         length: daysNumber,
         price: getPriceWithCurrency(
-          Math.round(daysNumber * Number(price.amount) * 1.16),
-          price.currency
+          Math.round(daysNumber * Number(apartment.price.amount) * 1.16),
+          apartment.price.currency
         ),
       })
     );
@@ -100,8 +101,11 @@ const BookingPannel = ({ price, orders }) => {
     <div className={styles.wrapper}>
       <div className={styles.title}>
         <span className={styles.bold}>
-          {getPriceWithCurrency(price.amount, price.currency)}
-        </span>{" "}
+          {getPriceWithCurrency(
+            apartment.price.amount,
+            apartment.price.currency
+          )}
+        </span>
         ночь
       </div>
       <div className={styles.chooseWrapper}>
@@ -139,15 +143,18 @@ const BookingPannel = ({ price, orders }) => {
 
       <div className={styles.price}>
         <div className={styles.underlined}>
-          {getPriceWithCurrency(price.amount, price.currency)}
+          {getPriceWithCurrency(
+            apartment.price.amount,
+            apartment.price.currency
+          )}
           {` x ${daysNumber} `}
           {daysNumber === 1 ? "ночь" : daysNumber < 5 ? "ночи" : "ночей"}
         </div>
 
         <div>
           {getPriceWithCurrency(
-            daysNumber * Number(price.amount),
-            price.currency
+            daysNumber * Number(apartment.price.amount),
+            apartment.price.currency
           )}
         </div>
       </div>
@@ -155,8 +162,8 @@ const BookingPannel = ({ price, orders }) => {
         <div className={styles.underlined}>Сервисный сбор BookApt</div>
         <div>
           {getPriceWithCurrency(
-            Math.round(daysNumber * Number(price.amount) * 0.16),
-            price.currency
+            Math.round(daysNumber * Number(apartment.price.amount) * 0.16),
+            apartment.price.currency
           )}
         </div>
       </div>
@@ -164,8 +171,8 @@ const BookingPannel = ({ price, orders }) => {
         <div className={styles.total}>Всего (без учета налогов)</div>
         <div>
           {getPriceWithCurrency(
-            Math.round(daysNumber * Number(price.amount) * 1.16),
-            price.currency
+            Math.round(daysNumber * Number(apartment.price.amount) * 1.16),
+            apartment.price.currency
           )}
         </div>
       </div>

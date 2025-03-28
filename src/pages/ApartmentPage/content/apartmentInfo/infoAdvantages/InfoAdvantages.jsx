@@ -16,8 +16,10 @@ const InfoAdvantages = ({ advantages }) => {
               style={{ width: "32px" }}
             />
             <div className={styles.infoAdvtgsText}>
-              <div className={styles.infoAdvtgsTitle}>{item.name}</div>
-              <div className={styles.infoAdvtgsSubtitle}>{item.descr}</div>
+              <div className={styles.infoAdvtgsTitle}>{item.title}</div>
+              <div className={styles.infoAdvtgsSubtitle}>
+                {item.description}
+              </div>
             </div>
           </div>
         );

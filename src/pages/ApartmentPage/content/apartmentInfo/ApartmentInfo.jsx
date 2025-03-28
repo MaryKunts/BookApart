@@ -35,9 +35,9 @@ const ApartmentInfo = ({
       </div>
       {label && mapApartmentLabel[label]}
       <OwnerInfo
-        owner={owner.name}
-        superowner={owner.superowner}
-        period={owner.period}
+        owner={owner.username}
+        superowner={owner.ownerInfo.isSuperOwner}
+        period={owner.ownerInfo.period}
       />
       <InfoAdvantages advantages={advantages} />
       <InfoDescription description={description} />

@@ -13,7 +13,7 @@ const SignupForm = () => {
 
   const handleSubmit = async ({ username, email, userPassword }) => {
     await signupAction({ username, email, userPassword });
-    navigate(ROUTES.ROOT);
+    navigate(-1);
   };
 
   return (
