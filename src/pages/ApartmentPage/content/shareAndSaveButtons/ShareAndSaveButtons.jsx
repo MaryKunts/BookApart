@@ -2,10 +2,9 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@headlessui/react";
 
-import "../../../../styles/icons";
-import styles from "./ShareAndSaveBtns.module.scss";
+import styles from "./ShareAndSaveButtons.module.scss";
 
-const ShareAndSaveBtns = () => {
+export const ShareAndSaveButtons = () => {
   return (
     <div className={styles.wrapper}>
       <Button>
@@ -20,5 +19,3 @@ const ShareAndSaveBtns = () => {
     </div>
   );
 };
-
-export default ShareAndSaveBtns;

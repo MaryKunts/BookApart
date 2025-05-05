@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const URL = import.meta.env.VITE_BASE_URL;
+
 export const axiosInstance = axios.create({
-  baseURL: "https://book-apart-backend.onrender.com/api",
+  baseURL: URL,
 });
 
 axiosInstance.interceptors.request.use(

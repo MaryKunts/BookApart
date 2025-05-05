@@ -3,12 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { ROUTES } from "../../routes/routes";
-import LoginForm from "./content/LoginForm/LoginForm";
-import styles from "./LoginPage.module.scss";
-import "../../styles/icons";
+import { ROUTES } from "../../routes";
+import { LoginForm } from "./content/loginForm";
 
-const LoginPage = () => {
+import styles from "./LoginPage.module.scss";
+
+export const LoginPage = () => {
   const navigate = useNavigate();
 
   return (
@@ -31,5 +31,3 @@ const LoginPage = () => {
     </div>
   );
 };
-
-export default LoginPage;

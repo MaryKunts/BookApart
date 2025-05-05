@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { createPortal } from "react-dom";
 
-import { useClickOutside } from "../hooks/useClickOutside/useClickOutside";
+import { useClickOutside } from "../../hooks/useClickOutside";
+
 import styles from "./Modal.module.scss";
 
-const Modal = ({ children, inProp, showOverlay, closeModal }) => {
+export const Modal = ({ children, inProp, showOverlay, closeModal }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -37,5 +38,3 @@ const Modal = ({ children, inProp, showOverlay, closeModal }) => {
     document.body
   );
 };
-
-export default Modal;

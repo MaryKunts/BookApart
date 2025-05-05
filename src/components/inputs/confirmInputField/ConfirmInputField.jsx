@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 
 import styles from "./ConfirmInputField.module.scss";
 
-const ConfirmInputField = ({
+export const ConfirmInputField = ({
   name,
   nameToMatch,
   placeholder,
@@ -37,5 +37,3 @@ const ConfirmInputField = ({
     </div>
   );
 };
-
-export default ConfirmInputField;

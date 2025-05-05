@@ -1,0 +1,103 @@
+@use "../../styles/spacing.scss";
+@use "../../styles/breakpoints.scss";
+@use "../../styles/font.scss";
+@use "../../styles/colors.scss";
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 2520px;
+  padding: 0 spacing.$indent-120;
+
+  @include breakpoints.lg-breakpoint {
+    padding: 0 spacing.$indent-80;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    font-family: font.$font-family;
+
+    .title {
+      font-size: font.$font-size;
+      font-weight: font.$font-weight-bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cart-item-wrapper {
+      margin-top: spacing.$indent-32;
+      display: flex;
+      gap: spacing.$indent-20;
+      padding-bottom: spacing.$indent-20;
+      border-bottom: 1px solid colors.$mortar-grey;
+
+      .image {
+        width: 30%;
+
+        img {
+          width: 100%;
+          border-radius: spacing.$border-radius-20;
+        }
+      }
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        gap: spacing.$indent-12;
+        width: 70%;
+
+        .description-title-wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .description-title {
+          font-weight: font.$font-weight-bold;
+          color: colors.$shisha-coal;
+        }
+
+        .description-date {
+          color: colors.$aged-moustache-grey;
+          font-weight: font.$font-weight-light;
+        }
+
+        .description-nights {
+          font-weight: font.$font-weight-bold;
+          font-weight: font.$font-weight-medium;
+        }
+
+        .description-price {
+          font-weight: font.$font-weight-bold;
+        }
+
+        .decline-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+          border: none;
+          border-radius: spacing.$border-radius-20;
+          color: colors.$shisha-coal;
+          font-size: font.$font-size;
+          transition: all 0.2s ease-in;
+
+          &:hover {
+            background-color: colors.$white-smoke;
+          }
+        }
+      }
+    }
+
+    .empty {
+      text-align: center;
+      margin: spacing.$indent-80 0;
+      color: colors.$mortar-grey;
+      font-weight: font.$font-weight-light;
+    }
+  }
+}

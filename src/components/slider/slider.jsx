@@ -1,12 +1,14 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import ReactSlider from "react-slick";
 
 import styles from "./slider.module.scss";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
+
   return (
     <div
       className={`${className} ${styles.arrow}`}
@@ -18,6 +20,7 @@ function SampleNextArrow(props) {
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
+
   return (
     <div
       className={`${className} ${styles.arrow}`}
@@ -26,28 +29,24 @@ function SamplePrevArrow(props) {
     />
   );
 }
-const PhotoSlider = (props) => {
-  return (
-    <div className={styles.slider}>
-      <Slider
-        {...{
-          dots: false,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          adaptiveHeight: true,
-          nextArrow: <SampleNextArrow />,
-          prevArrow: <SamplePrevArrow />,
-        }}>
-        {props.content.map((item, index) => (
-          <div className={styles.sliderItem} key={index}>
-            <img src={item} id={props.id} />
-          </div>
-        ))}
-      </Slider>
-    </div>
-  );
-};
-
-export default PhotoSlider;
+export const Slider = ({ id, content }) => (
+  <div className={styles.slider}>
+    <ReactSlider
+      {...{
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+      }}>
+      {content.map((item, index) => (
+        <div className={styles.sliderItem} key={index}>
+          <img src={item} id={id} />
+        </div>
+      ))}
+    </ReactSlider>
+  </div>
+);

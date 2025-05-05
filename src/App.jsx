@@ -1,13 +1,16 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainPage from "./pages/MainPage/MainPage";
-import ApartmentPage from "./pages/ApartmentPage/ApartmentPage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import AuthProvider from "./context/AuthContext";
 
+import { MainPage } from "./pages/MainPage";
+import { ApartmentPage } from "./pages/ApartmentPage";
+import { LoginPage } from "./pages/LoginPage";
+import AuthProvider from "./context/AuthContext";
+import "./config/icons";
 import "./app.css";
-import { ROUTES } from "./routes/routes";
-import SignupPage from "./pages/SignupPage/SignupPage";
+import { ROUTES } from "./routes";
+import { SignupPage } from "./pages/SignupPage";
+import { CartPage } from "./pages/CartPage";
+import { PrivateRoute } from "./routes/privateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,15 @@ const router = createBrowserRouter([
   {
     path: ROUTES.SIGNUP_PAGE,
     element: <SignupPage />,
+  },
+  {
+    element: <PrivateRoute />,
+    children: [
+      {
+        path: ROUTES.CART_PAGE,
+        element: <CartPage />,
+      },
+    ],
   },
 ]);
 

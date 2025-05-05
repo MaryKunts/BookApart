@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../../context/AuthContext";
-import Form from "../../../../components/form/Form";
-import InputField from "../../../../components/inputs/inputField/inputField";
-import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
-import ConfirmInputField from "../../../../components/inputs/confirmInputField/ConfirmInputField";
-import { ROUTES } from "../../../../routes/routes";
 
-const SignupForm = () => {
+import { useAuth } from "../../../../context/AuthContext";
+import { Form } from "../../../../components/form";
+import { InputField } from "../../../../components/inputs/inputField";
+import { ConfirmButton } from "../../../../components/confirmButton";
+import { ConfirmInputField } from "../../../../components/inputs/confirmInputField";
+
+export const SignupForm = () => {
   const { signupAction, loading } = useAuth();
   const navigate = useNavigate();
 
@@ -46,5 +46,3 @@ const SignupForm = () => {
     </Form>
   );
 };
-
-export default SignupForm;

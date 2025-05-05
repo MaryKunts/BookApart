@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../../context/AuthContext";
-import Form from "../../../../components/form/Form";
-import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
-import InputField from "../../../../components/inputs/inputField/inputField";
-import { ROUTES } from "../../../../routes/routes";
 
-const LoginForm = () => {
+import { useAuth } from "../../../../context/AuthContext";
+import { Form } from "../../../../components/form";
+import { ConfirmButton } from "../../../../components/confirmButton";
+import { InputField } from "../../../../components/inputs/inputField";
+
+export const LoginForm = () => {
   const { loginAction, loading } = useAuth();
   const navigate = useNavigate();
 
@@ -34,5 +34,3 @@ const LoginForm = () => {
     </Form>
   );
 };
-
-export default LoginForm;

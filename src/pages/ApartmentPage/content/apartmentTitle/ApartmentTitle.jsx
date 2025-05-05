@@ -1,15 +1,12 @@
 import React from "react";
 
-import ShareAndSaveBtns from "../shareAndSaveBtns/ShareAndSaveBtns";
+import { ShareAndSaveButtons } from "../shareAndSaveButtons";
+
 import styles from "./ApartmentTitle.module.scss";
 
-const ApartmentTitle = ({ title }) => {
-  return (
-    <div className={styles.container}>
-      <div>{title}</div>
-      <ShareAndSaveBtns />
-    </div>
-  );
-};
-
-export default ApartmentTitle;
+export const ApartmentTitle = ({ title }) => (
+  <div className={styles.container}>
+    <div>{title}</div>
+    <ShareAndSaveButtons />
+  </div>
+);

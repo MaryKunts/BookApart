@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import { useClickOutside } from "../../hooks/useClickOutside/useClickOutside";
+import { useClickOutside } from "../../hooks/useClickOutside";
 import styles from "./Dropdown.module.scss";
 
-const Dropdown = ({ children, trigger, forcedOpen = false, onStateChange }) => {
+export const Dropdown = ({
+  children,
+  trigger,
+  forcedOpen = false,
+  onStateChange,
+}) => {
   const [isOpen, setIsOpen] = useState(forcedOpen);
 
   const dropdownRef = useRef(null);
@@ -33,5 +38,3 @@ const Dropdown = ({ children, trigger, forcedOpen = false, onStateChange }) => {
     </div>
   );
 };
-
-export default Dropdown;

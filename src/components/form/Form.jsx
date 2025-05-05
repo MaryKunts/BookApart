@@ -3,7 +3,7 @@ import { useForm, FormProvider } from "react-hook-form";
 
 import styles from "./Form.module.scss";
 
-const Form = ({ children, onSubmit }) => {
+export const Form = ({ children, onSubmit }) => {
   const methods = useForm({ mode: "onBlur" });
   const { reset, handleSubmit, isSubmitSuccessful } = methods;
 
@@ -19,5 +19,3 @@ const Form = ({ children, onSubmit }) => {
     </FormProvider>
   );
 };
-
-export default Form;

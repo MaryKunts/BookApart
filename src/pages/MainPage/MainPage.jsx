@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
 import { axiosInstance } from "../../config/axios";
-import Header from "../../components/header/header";
-import Content from "../../components/content/content";
-import Footer from "../../components/footer/footer";
+import { Header } from "../../components/header";
+import { Content } from "../../components/content";
+import { Footer } from "../../components/footer";
+import { Spinner } from "../../components/spinner";
 
 import styles from "./MainPage.module.scss";
-import Spinner from "../../components/spinner/Spinner";
 
-const MainPage = () => {
+export const MainPage = () => {
   const [accomodations, setAccomodations] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -23,6 +24,8 @@ const MainPage = () => {
     } catch (err) {
       setLoading(false);
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -44,5 +47,3 @@ const MainPage = () => {
     </div>
   );
 };
-
-export default MainPage;

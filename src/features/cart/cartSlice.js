@@ -11,7 +11,8 @@ export const cartSlice = createSlice({
   reducers: {
     addOrder: (state, action) => {
       state.orders.push({
-        id: action.payload.id,
+        orderId: action.payload.orderId,
+        houseId: action.payload.houseId,
         images: action.payload.images,
         type: action.payload.type,
         city: action.payload.city,
@@ -23,7 +24,7 @@ export const cartSlice = createSlice({
     },
     deleteOrder: (state, action) => {
       const index = state.orders.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item.orderId === action.payload.orderId
       );
       const newOrders = state.orders.toSpliced(index, 1);
       state.orders = newOrders;

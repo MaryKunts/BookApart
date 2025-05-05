@@ -1,20 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { accomodations } from "../../../accomodationVariants/accomodationVariants";
-import getTitle from "../../../utils/getTitle/getTitle";
+import { ROUTES } from "../../../routes";
+import { getTitle } from "../../../utils/getTitle";
 
 import styles from "./Cart.module.scss";
 
-const Cart = ({ orders }) => {
+export const Cart = ({ orders }) => {
   if (!orders.length) {
     return <div className={styles.empty}>Корзина пуста</div>;
   }
+
   return (
     <>
       <div className={styles.title}>Ваши заказы</div>
       {orders.map((item) => {
         return (
-          <div className={styles.container}>
+          <Link
+            to={ROUTES.CART_PAGE}
+            className={styles.container}
+            key={item.orderId}>
             <div className={styles.image}>
               <img src={item.images[0]} alt="" />
             </div>
@@ -31,11 +36,9 @@ const Cart = ({ orders }) => {
                 }>{`${item.length} ночей`}</div>
               <div className={styles.descriptionPrice}>{item.price}</div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </>
   );
 };
-
-export default Cart;

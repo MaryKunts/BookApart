@@ -1,0 +1,1 @@
+export { InfoAdvantages } from "./InfoAdvantages";
