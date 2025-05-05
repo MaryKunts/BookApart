@@ -5,7 +5,7 @@ import { faPagelines } from "@fortawesome/free-brands-svg-icons";
 
 import styles from "./UsersChoiceBar.module.scss";
 
-const UsersChoiceBar = ({ rating }) => {
+export const UsersChoiceBar = ({ rating }) => {
   return (
     <div className={styles.usersChoiceWrapper}>
       <div className={styles.usersChoiceLogo}>
@@ -30,5 +30,3 @@ const UsersChoiceBar = ({ rating }) => {
     </div>
   );
 };
-
-export default UsersChoiceBar;

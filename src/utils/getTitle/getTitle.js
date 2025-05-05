@@ -1,5 +1,1 @@
-const getTitle = (type, city, country) => {
-  return `${type}, ${city}, ${country}`;
-};
-
-export default getTitle;
+export const getTitle = (type, city, country) => `${type}, ${city}, ${country}`;

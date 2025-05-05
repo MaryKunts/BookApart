@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import "../../styles/icons";
-import styles from "./ApartmentPage.module.scss";
-import Footer from "../../components/footer/footer";
-import Header from "../../components/header/header";
-
-import ApartmentTitle from "./content/apartmentTitle/ApartmentTitle";
-import ApartmentImages from "./content/apartmentImages/ApartmentImages";
-import ApartmentInfo from "./content/apartmentInfo/ApartmentInfo";
-import BookingPannel from "./content/bookingPannel/BookingPannel";
+import { Footer } from "../../components/footer";
+import { Header } from "../../components/header";
+import { ApartmentTitle } from "./content/apartmentTitle";
+import { ApartmentImages } from "./content/apartmentImages";
+import { ApartmentInfo } from "./content/apartmentInfo";
+import { BookingPannel } from "./content/bookingPannel";
 import { axiosInstance } from "../../config/axios";
-import Spinner from "../../components/spinner/Spinner";
+import { Spinner } from "../../components/spinner";
 
-const ApartmentPage = () => {
+import styles from "./ApartmentPage.module.scss";
+
+export const ApartmentPage = () => {
   const params = useParams();
   const [apartment, setApartment] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -30,6 +29,8 @@ const ApartmentPage = () => {
     } catch (err) {
       setLoading(false);
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,5 +74,3 @@ const ApartmentPage = () => {
     </div>
   );
 };
-
-export default ApartmentPage;

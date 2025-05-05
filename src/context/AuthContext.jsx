@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+
 import { axiosInstance } from "../config/axios";
 
 const AuthContext = createContext();
@@ -24,8 +25,10 @@ const AuthProvider = ({ children }) => {
         setToken(response.data.token);
         localStorage.setItem("accessToken", response.data.token);
         setLoading(false);
+
         return;
       }
+
       throw new Error(res.message);
     } catch (err) {
       setLoading(false);
@@ -36,7 +39,8 @@ const AuthProvider = ({ children }) => {
   const signupAction = async ({ username, email, userPassword }) => {
     try {
       setLoading(true);
-      const response = await axiosInstance.post("/auth/register", {
+
+      await axiosInstance.post("/auth/register", {
         username,
         email,
         password: userPassword,

@@ -1,26 +1,26 @@
 import React, { useState } from "react";
-import { Button } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
 
 import { addOrder, openCart } from "../../../../features/cart/cartSlice";
-import ConfirmButton from "../../../../components/confirmButton/ConfirmButton";
+import { ConfirmButton } from "../../../../components/confirmButton";
 import { useAuth } from "../../../../context/AuthContext";
-import getPriceWithCurrency from "../../../../utils/getPriceWithCurrency/getPriceWithCurrency";
+import { getPriceWithCurrency } from "../../../../utils/getPriceWithCurrency";
 import { DATE_FORMAT } from "../../../../const/dates";
-import { ROUTES } from "../../../../routes/routes";
+import { ROUTES } from "../../../../routes";
+
 import styles from "./BookingPannel.module.scss";
 
 const CLOSEST_DAYS = 5;
 
-const BookingPannel = ({ apartment }) => {
+export const BookingPannel = ({ apartment }) => {
   const { RangePicker } = DatePicker;
 
   const dispatch = useDispatch();
-
+  const params = useParams();
   const { user } = useAuth();
 
   const getDefaultValue = () => {
@@ -81,7 +81,8 @@ const BookingPannel = ({ apartment }) => {
   const handleMakeOrder = () => {
     dispatch(
       addOrder({
-        id: uuidv4(),
+        orderId: uuidv4(),
+        houseId: params.id,
         images: apartment.images,
         type: apartment.type,
         city: apartment.city,
@@ -179,5 +180,3 @@ const BookingPannel = ({ apartment }) => {
     </div>
   );
 };
-
-export default BookingPannel;

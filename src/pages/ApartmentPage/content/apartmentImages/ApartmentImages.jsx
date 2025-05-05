@@ -1,14 +1,13 @@
 import React from "react";
-import { useState } from "react";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Modal from "../../../../modal/Modal";
-import { useModal } from "../../../../hooks/useModal/useModal";
-import ImagesModalContent from "./imagesModalContent/ImagesModalContent";
+import { Modal } from "../../../../components/modal";
+import { useModal } from "../../../../hooks/useModal";
+import { ImagesModalContent } from "./imagesModalContent";
 import styles from "./ApartmentImages.module.scss";
 
-const ApartmentImages = ({ images }) => {
+export const ApartmentImages = ({ images }) => {
   const { isOpen, openModal, closeModal } = useModal();
 
   return (
@@ -34,5 +33,3 @@ const ApartmentImages = ({ images }) => {
     </>
   );
 };
-
-export default ApartmentImages;

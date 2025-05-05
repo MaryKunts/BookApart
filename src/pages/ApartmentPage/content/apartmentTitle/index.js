@@ -1,0 +1,1 @@
+export { ApartmentTitle } from "./ApartmentTitle";

@@ -1,9 +1,11 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
+
 import { validationRules } from "../validationRules";
+
 import styles from "./InputField.module.scss";
 
-const InputField = ({
+export const InputField = ({
   name,
   placeholder,
   type = "text",
@@ -28,9 +30,7 @@ const InputField = ({
         {...register(name, validationRules[rule])}
         {...rest}
       />
-      {touchedFields[name] && error && <p className={styles.error}> {error}</p>}
+      {touchedFields[name] && error && <p className={styles.error}>{error}</p>}
     </div>
   );
 };
-
-export default InputField;

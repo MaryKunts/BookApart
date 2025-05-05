@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Modal from "../../../../../modal/Modal";
-import { useModal } from "../../../../../hooks/useModal/useModal";
+import { Modal } from "../../../../../components/modal";
+import { useModal } from "../../../../../hooks/useModal";
+
 import styles from "./InfoDescription.module.scss";
 
-const InfoDescription = ({ description }) => {
+export const InfoDescription = ({ description }) => {
   const { isOpen, openModal, closeModal } = useModal();
 
   return (
@@ -36,5 +37,3 @@ const InfoDescription = ({ description }) => {
     </div>
   );
 };
-
-export default InfoDescription;

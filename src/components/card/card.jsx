@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PhotoSlider from "../slider/slider";
-import CardPreferenceBar from "../preferenceCardBar/preferenceCardBar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import getPriceWithCurrency from "../../utils/getPriceWithCurrency/getPriceWithCurrency";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import styles from "./card.module.scss";
+import { Slider } from "../slider";
+import { getPriceWithCurrency } from "../../utils/getPriceWithCurrency";
+import styles from "./Card.module.scss";
 
-const Card = ({ images, city, country, rating, view, price, id }) => {
+export const Card = ({ images, city, country, rating, view, price, id }) => {
   return (
     <Link to={`/rooms/${id}`} className={styles.wrapper}>
-      <PhotoSlider content={images} />
+      <Slider content={images} />
       <div className={styles.titleBox}>
         <div>{`${city}(${country})`}</div>
         <div className={styles.rating}>
@@ -26,5 +26,3 @@ const Card = ({ images, city, country, rating, view, price, id }) => {
     </Link>
   );
 };
-
-export default Card;

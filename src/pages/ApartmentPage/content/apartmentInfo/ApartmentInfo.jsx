@@ -1,14 +1,14 @@
 import React from "react";
 
-import UsersChoiceBar from "../usersChoiceBar/UsersChoiceBar";
-import OwnerInfo from "./ownerInfo/OwnerInfo";
-import InfoAdvantages from "./infoAdvantages/InfoAdvantages";
-import InfoDescription from "./infoDescription/InfoDescription";
-import getTitle from "../../../../utils/getTitle/getTitle";
+import { OwnerInfo } from "./ownerInfo";
+import { InfoAdvantages } from "./infoAdvantages";
+import { InfoDescription } from "./infoDescription";
+import { getTitle } from "../../../../utils/getTitle";
+import { UsersChoiceBar } from "../usersChoiceBar";
 
 import styles from "./ApartmentInfo.module.scss";
 
-const ApartmentInfo = ({
+export const ApartmentInfo = ({
   type,
   city,
   country,
@@ -23,6 +23,7 @@ const ApartmentInfo = ({
   description,
 }) => {
   const mapApartmentLabel = { usersChoice: <UsersChoiceBar rating={rating} /> };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.infoTitle}>{getTitle(type, city, country)}</div>
@@ -44,5 +45,3 @@ const ApartmentInfo = ({
     </div>
   );
 };
-
-export default ApartmentInfo;

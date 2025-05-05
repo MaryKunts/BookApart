@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import styles from "./SignupPage.module.scss";
-import "../../styles/icons";
-import SignupForm from "./content/signupForm/SignupForm";
+import { SignupForm } from "./content/signupForm";
 
-const SignupPage = () => {
+import styles from "./SignupPage.module.scss";
+
+export const SignupPage = () => {
   const navigate = useNavigate();
 
   return (
@@ -26,5 +26,3 @@ const SignupPage = () => {
     </div>
   );
 };
-
-export default SignupPage;
